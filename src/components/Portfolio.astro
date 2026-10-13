@@ -1,0 +1,55 @@
+---
+const { lang = 'en' } = Astro.props;
+const es = lang === 'es';
+const copy = es ? {
+  title: 'Ingeniero de Infraestructura TI | Redes | Cloud y Ciberseguridad',
+  intro: 'Soy Juan Carlos Flores, ingeniero electrónico de la Universidad Nacional del Callao, Perú. Tengo experiencia en operación de datacenter Tier III, monitoreo NOC 24x7, redes, virtualización y soporte de infraestructura empresarial.',
+  detail: 'Actualmente profundizo mis conocimientos en Azure, gestión de identidades, seguridad cloud y automatización.',
+  about: 'Perfil', experience: 'Experiencia', skills: 'Competencias', certs: 'Certificaciones', projects: 'Proyectos', contact: 'Contacto',
+  experienceText: 'Experiencia operativa en Global Hitss y Fractalia: monitoreo, gestión de incidentes y SLA, troubleshooting de redes, VMware y soporte coordinado con especialistas. Las migraciones de máquinas virtuales fueron asistidas.',
+  skillsText: 'VMware vSphere · Cloud Director · NSX · vSAN · Zabbix · SolarWinds · HPE OneView · TCP/IP · VLAN · DNS · Commvault · Scality Ring',
+  certsText: 'Formación y certificaciones en Oracle Cloud Infrastructure, Fortinet y Huawei. Enlaces verificables pendientes de incorporar.',
+  projectsText: 'Laboratorios planificados (todavía no completados): Active Directory y Windows Server; redes y administración Azure; monitoreo con Zabbix y Grafana.',
+  cta: 'Contactar', status: 'Portafolio en construcción', foot: 'JCF Infra — Experiencia real, aprendizaje continuo y proyectos verificables.'
+} : {
+  title: 'IT Infrastructure | Networking | Cloud & Cybersecurity',
+  intro: 'I am Juan Carlos Flores, an Electronic Engineer from the National University of Callao, Peru. I have professional experience in Tier III datacenter operations, 24/7 NOC monitoring, networking, virtualization and enterprise infrastructure support.',
+  detail: 'Currently developing further practical skills in Azure, identity management, cloud security and automation.',
+  about: 'About', experience: 'Experience', skills: 'Skills', certs: 'Certifications', projects: 'Projects', contact: 'Contact',
+  experienceText: 'Operational experience at Global Hitss and Fractalia: monitoring, incident and SLA management, network troubleshooting, VMware and coordinated support with specialists. Virtual machine migrations were performed with specialist guidance.',
+  skillsText: 'VMware vSphere · Cloud Director · NSX · vSAN · Zabbix · SolarWinds · HPE OneView · TCP/IP · VLAN · DNS · Commvault · Scality Ring',
+  certsText: 'Certification and training background in Oracle Cloud Infrastructure, Fortinet and Huawei. Verified credential links will be added after review.',
+  projectsText: 'Planned labs (not yet completed): Active Directory and Windows Server; Azure networking and administration; Zabbix and Grafana monitoring.',
+  cta: 'Get in touch', status: 'Portfolio under development', foot: 'JCF Infra — Real-world experience, continuous learning and verifiable projects.'
+};
+const sections = [
+  { id: 'experience', label: copy.experience, body: copy.experienceText },
+  { id: 'skills', label: copy.skills, body: copy.skillsText },
+  { id: 'certifications', label: copy.certs, body: copy.certsText },
+  { id: 'projects', label: copy.projects, body: copy.projectsText },
+];
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={copy.intro} />
+    <meta name="theme-color" content="#0b1220" />
+    <link rel="canonical" href={es ? 'https://jcfinfra.com/es/' : 'https://jcfinfra.com/'} />
+    <link rel="alternate" hreflang="en" href="https://jcfinfra.com/" />
+    <link rel="alternate" hreflang="es" href="https://jcfinfra.com/es/" />
+    <title>Juan Carlos Flores | JCF Infra</title>
+    <style>
+      :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:#e9f0fb;background:#0b1220;font-synthesis:none}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;line-height:1.65}a{color:#6bc5ff}a:focus-visible{outline:3px solid #69c8ff;outline-offset:4px}.wrap{max-width:1050px;margin:auto;padding:0 24px}header{border-bottom:1px solid #24334a;background:#101b2c}header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:74px;flex-wrap:wrap}nav{display:flex;gap:16px;flex-wrap:wrap}nav a{color:#d4e2f6;text-decoration:none;font-size:.91rem}.brand{font-weight:800;letter-spacing:.05em;color:white;text-decoration:none}.lang{border:1px solid #42617e;border-radius:20px;padding:5px 12px}.hero{padding:92px 0 75px;background:radial-gradient(ellipse at 85% 5%,#153d62 0%,transparent 55%)}.eyebrow{color:#70caff;text-transform:uppercase;letter-spacing:.16em;font-size:.8rem;font-weight:700}h1{font-size:clamp(2.3rem,6vw,4.2rem);line-height:1.1;letter-spacing:-.04em;max-width:850px;margin:16px 0}h2{font-size:1.65rem;line-height:1.3}.lead{font-size:1.12rem;color:#c6d4e7;max-width:760px}.muted{color:#a7b8d0}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.button{display:inline-block;border-radius:10px;padding:11px 18px;background:#56b9f2;color:#061523;text-decoration:none;font-weight:700}.button.secondary{background:transparent;border:1px solid #42617e;color:#e5f1ff}main section:not(.hero){padding:32px 0;scroll-margin-top:20px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.panel{background:#111f32;border:1px solid #29415c;border-radius:15px;padding:24px}.panel p{color:#c1d0e4;margin-bottom:0}.status{font-size:.84rem;color:#9ec7e7}.contact{margin:38px 0 70px;padding:30px;border:1px solid #2e5577;border-radius:16px;background:#122840}footer{border-top:1px solid #24334a;color:#9bacc4;padding:24px 0;font-size:.88rem}@media(max-width:720px){header .wrap{padding-top:16px;padding-bottom:16px}nav{gap:12px}.hero{padding:60px 0 48px}.grid{grid-template-columns:1fr}}
+    </style>
+  </head>
+  <body>
+    <header><div class="wrap"><a class="brand" href={es ? '/es/' : '/'}>JCF INFRA</a><nav aria-label="Main navigation"><a href="#about">{copy.about}</a><a href="#experience">{copy.experience}</a><a href="#skills">{copy.skills}</a><a href="#projects">{copy.projects}</a><a href="#contact">{copy.contact}</a><a class="lang" href={es ? '/' : '/es/'} hreflang={es ? 'en' : 'es'}>{es ? 'EN' : 'ES'}</a></nav></div></header>
+    <main>
+      <section class="hero" id="about"><div class="wrap"><div class="eyebrow">Juan Carlos Flores · Lima, Peru</div><h1>{copy.title}</h1><p class="lead">{copy.intro}</p><p class="muted">{copy.detail}</p><div class="actions"><a class="button" href="mailto:juan@jcfinfra.com">{copy.cta}</a><a class="button secondary" href="https://github.com/jcfinfra" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="button secondary" href="https://www.linkedin.com/in/juan-carlos-aroni/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div></section>
+      <div class="wrap"><div class="grid">{sections.map(section => <section class="panel" id={section.id}><h2>{section.label}</h2><p>{section.body}</p></section>)}</div><section id="contact" class="contact"><h2>{copy.contact}</h2><p><a href="mailto:juan@jcfinfra.com">juan@jcfinfra.com</a></p><p class="status">{copy.status}</p></section></div>
+    </main>
+    <footer><div class="wrap">{copy.foot}</div></footer>
+  </body>
+</html>
