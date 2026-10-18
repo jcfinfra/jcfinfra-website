@@ -1,0 +1,30 @@
+---
+interface Props { lang: 'en' | 'es'; title: string; description: string; slug: string; }
+const { lang, title, description, slug } = Astro.props;
+const es = lang === 'es';
+const home = es ? '/es/' : '/';
+const enPath = '/labs/' + slug + '/';
+const esPath = '/es/labs/' + slug + '/';
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content={description} />
+<link rel="canonical" href={'https://jcfinfra.com' + (es ? esPath : enPath)} />
+<link rel="alternate" hreflang="en" href={'https://jcfinfra.com' + enPath} />
+<link rel="alternate" hreflang="es" href={'https://jcfinfra.com' + esPath} />
+<title>{title} | JCF Infra</title>
+<style is:global>
+    :root{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#e9f0fb;background:#0b1220;line-height:1.7}*{box-sizing:border-box}body{margin:0}a{color:#70caff}a:focus-visible{outline:3px solid #70caff;outline-offset:5px}.wrap{max-width:1000px;padding:0 24px;margin:auto}header,footer{background:#101b2c;padding:22px 0}header .wrap,nav{display:flex;gap:22px;flex-wrap:wrap;justify-content:space-between}.brand{font-weight:800;color:white;text-decoration:none}.hero{padding:64px 0 36px;background:radial-gradient(ellipse at top right,#153d62,transparent 70%)}.eyebrow{color:#70caff;letter-spacing:.12em;font-weight:700;font-size:.8rem}h1{font-size:clamp(2rem,6vw,3.7rem);line-height:1.12;letter-spacing:-.035em;max-width:850px}h2{font-size:1.7rem;line-height:1.3;margin-top:0}h3{line-height:1.35}p,li{color:#c6d4e7}.lead{font-size:1.15rem;max-width:760px}.badge{display:inline-block;border:1px solid #42617e;border-radius:20px;padding:4px 12px;margin:4px 8px 4px 0;font-size:.85rem}.notice{border-left:4px solid #70caff;padding:16px 22px;background:#122840}.content section{padding:36px 0;border-bottom:1px solid #24334a;scroll-margin-top:20px}.flow,pre{padding:20px;background:#111f32;border:1px solid #29415c;border-radius:10px;overflow-wrap:anywhere}pre{white-space:pre-wrap}code{font-size:.92em;color:#a3dbff}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:540px}th,td{text-align:left;vertical-align:top;padding:14px;border-bottom:1px solid #29415c}th{color:#70caff}figure{margin:28px 0}figure img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid #42617e;background:white}figcaption{font-size:.88rem;color:#a7b8d0;margin-top:10px}footer{margin-top:40px;font-size:.9rem}.toc{justify-content:flex-start;padding:20px 0}ul,ol{padding-left:24px}@media(max-width:600px){.wrap{padding:0 18px}.hero{padding-top:40px}nav{gap:12px}th,td{padding:10px}}
+
+.language-switch{display:flex;gap:12px;align-items:center}.language-switch a{border:1px solid #42617e;border-radius:20px;padding:3px 12px}.language-switch [aria-current="page"]{background:#70caff;color:#061523;text-decoration:none;font-weight:700}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href={home}>JCF INFRA</a><nav aria-label={es ? 'Navegación principal' : 'Main navigation'}><a href={home + '#projects'}>{es ? 'Proyectos' : 'Projects'}</a><a href={home + '#contact'}>{es ? 'Contacto' : 'Contact'}</a></nav><nav class="language-switch" aria-label={es ? 'Idioma del laboratorio' : 'Lab language'}><a href={enPath} lang="en" hreflang="en" aria-current={!es ? 'page' : undefined}>English</a><a href={esPath} lang="es" hreflang="es" aria-current={es ? 'page' : undefined}>Español</a></nav></div></header>
+<main><slot /></main>
+<footer><div class="wrap"><a href={home + '#projects'}>{es ? '← Volver a proyectos' : '← Back to projects'}</a><p>{es ? 'JCF Infra — Experiencia real, aprendizaje continuo y proyectos verificables.' : 'JCF Infra — Real-world experience, continuous learning and verifiable projects.'}</p></div></footer>
+</body>
+</html>
