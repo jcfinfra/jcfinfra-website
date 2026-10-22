@@ -36,3 +36,6 @@ jobs:
 
       - name: Build Astro
         run: npm run build
+
+      - name: Verify routes, metadata and evidence assets
+        run: npm run verify

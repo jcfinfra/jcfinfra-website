@@ -46,6 +46,7 @@ Before proposing a release:
 ```bash
 npm run check
 npm run build
+npm run verify
 npm audit --audit-level=high
 ```
 

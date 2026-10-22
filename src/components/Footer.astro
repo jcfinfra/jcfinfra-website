@@ -1,0 +1,4 @@
+---
+const {lang='en'}=Astro.props;const es=lang==='es';
+---
+<footer class="site-footer"><div class="wrap footer-inner"><div><a class="brand" href={es?'/es/':'/'}>JCF <span>INFRA</span></a><p>{es?'Experiencia real. Aprendizaje continuo. Proyectos verificables.':'Real-world experience. Continuous learning. Verifiable projects.'}</p></div><div class="footer-links"><a href="https://github.com/jcfinfra">GitHub ↗</a><a href="https://www.linkedin.com/in/juan-carlos-aroni/">LinkedIn ↗</a><a href="mailto:juan@jcfinfra.com">{es?'Contacto':'Contact'}</a></div></div></footer>
