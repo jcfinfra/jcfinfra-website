@@ -1,6 +1,6 @@
 # Phase 4 — preview candidate
 
-Status: local candidate; visual review, PR and remote preview validation pending. This is not a Phase 4 closeout or a production release record.
+Status: PR #4 is open as a draft. Its Cloudflare preview has passed automated checks and manual visual, responsive and keyboard review. This is not a Phase 4 closeout or a production release record.
 
 Juan approved work through PR and validated preview on 22 October 2026 (America/Lima). Merge and production publication are not authorized by this approval.
 
@@ -21,12 +21,15 @@ Juan approved work through PR and validated preview on 22 October 2026 (America/
 - npm audit: zero known vulnerabilities at execution time.
 - npm run verify: eight routes, 12 images, 270 internal references; canonical, language alternates, social metadata, local anchors, sitemap and public-to-build image hashes passed.
 - Original 12 evidence files match their tracked Git baseline. Azure lab data unchanged.
+- Preview reviewed in a browser at 1440×900 and 390×844. All eight routes reported the expected language, exactly one H1, no horizontal overflow, no missing image alt text and no broken same-page anchors.
+- Manually reviewed both landing pages and all three lab pages. The mobile menu opens; its links receive visible keyboard focus; the skip link receives visible focus and navigates to `#main`.
+- WCAG contrast ratios from the approved palette: primary text/background 16.62:1; muted text/background 7.30:1; accent/background 8.74:1; primary text/surface 13.86:1; muted text/surface 6.09:1; accent/surface 7.29:1.
 
-These checks are not a visual, screen-reader, browser-compatibility or field-performance audit. The current browser tool is disabled in Work settings; responsive, keyboard, zoom and visual preview checks remain pending. Do not merge on this evidence alone.
+These checks do not constitute a screen-reader, broad browser-compatibility, real-device or field-performance audit. Zoom behavior and screen-reader output were not tested. The PR remains a draft; production integration and deployment are outside the approved scope.
 
 ## Preservation and release boundary
 
-Base commit: 46ddd190e63b44107928a4cf03ba5fbf64682574. Local working branch: feature/phase-4-redesign. A ZIP backup of the uncommitted candidate was created outside this repository before continuing.
+Base commit: 46ddd190e63b44107928a4cf03ba5fbf64682574. Working branch: feature/phase-4-redesign. A ZIP backup of the candidate was created outside this repository before the first commit.
 
 No DNS, WAF, mail, secret or production-infrastructure changes. CV and credential links remain absent until validated. Existing historical lab claims and limitations remain in place.
 
