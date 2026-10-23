@@ -1,8 +1,8 @@
-# Phase 4 — preview candidate
+# Phase 4 — preview candidate (historical record)
 
-Status: PR #4 is open as a draft. Its Cloudflare preview has passed automated checks and manual visual, responsive and keyboard review. This is not a Phase 4 closeout or a production release record.
+Status: This document records the pre-release preview candidate. The authoritative Phase 4 closeout and production state are recorded in [PHASE-4-closeout.md](PHASE-4-closeout.md).
 
-Juan approved work through PR and validated preview on 22 October 2026 (America/Lima). Merge and production publication are not authorized by this approval.
+Juan approved work through PR and validated preview on 22 October 2026 (America/Lima). A subsequent explicit approval authorized integration and production publication; see the closeout record.
 
 ## Scope
 
@@ -25,7 +25,7 @@ Juan approved work through PR and validated preview on 22 October 2026 (America/
 - Manually reviewed both landing pages and all three lab pages. The mobile menu opens; its links receive visible keyboard focus; the skip link receives visible focus and navigates to `#main`.
 - WCAG contrast ratios from the approved palette: primary text/background 16.62:1; muted text/background 7.30:1; accent/background 8.74:1; primary text/surface 13.86:1; muted text/surface 6.09:1; accent/surface 7.29:1.
 
-These checks do not constitute a screen-reader, broad browser-compatibility, real-device or field-performance audit. Zoom behavior and screen-reader output were not tested. The PR remains a draft; production integration and deployment are outside the approved scope.
+These checks do not constitute a screen-reader, broad browser-compatibility, real-device or field-performance audit. Zoom behavior and screen-reader output were not tested. At the time this record was written, the PR remained a draft and production publication was not yet authorized.
 
 ## Preservation and release boundary
 
@@ -33,4 +33,4 @@ Base commit: 46ddd190e63b44107928a4cf03ba5fbf64682574. Working branch: feature/p
 
 No DNS, WAF, mail, secret or production-infrastructure changes. CV and credential links remain absent until validated. Existing historical lab claims and limitations remain in place.
 
-The deployment observed in the preceding session was 7ac2914a-1701-4d9d-9582-c0dbdd758d30 at the base commit; revalidate the active deployment before any future authorized production release.
+The preview observed before release was 7ac2914a-1701-4d9d-9582-c0dbdd758d30 at the base commit. The production release is recorded in [PHASE-4-closeout.md](PHASE-4-closeout.md).
