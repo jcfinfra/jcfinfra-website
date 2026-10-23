@@ -1,0 +1,10 @@
+---
+interface Props {lang:'en'|'es';enPath?:string;esPath?:string;lab?:boolean}
+const {lang,enPath='/',esPath='/es/',lab=false}=Astro.props;const es=lang==='es';const home=es?'/es/':'/';
+const links=lab?[['projects',es?'Proyectos':'Projects'],['contact',es?'Contacto':'Contact']]:[['about',es?'Perfil':'About'],['experience',es?'Experiencia':'Experience'],['skills',es?'Competencias':'Skills'],['projects',es?'Proyectos':'Projects'],['certifications',es?'Credenciales':'Credentials'],['contact',es?'Contacto':'Contact']];
+---
+<a class="skip-link" href="#main">{es?'Saltar al contenido':'Skip to content'}</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href={home}>JCF <span>INFRA</span></a><nav class="desktop-nav" aria-label={es?'Navegación principal':'Main navigation'}>{links.map(([id,label])=><a href={`${home}#${id}`}>{label}</a>)}</nav><details class="mobile-menu"><summary>{es?'Menú':'Menu'}</summary><nav aria-label={es?'Navegación móvil':'Mobile navigation'}>{links.map(([id,label])=><a href={`${home}#${id}`}>{label}</a>)}</nav></details><nav class="language-switch" aria-label={es?'Idioma':'Language'}><a href={enPath} lang="en" hreflang="en" aria-label="English" aria-current={!es?'page':undefined}>EN</a><a href={esPath} lang="es" hreflang="es" aria-label="Español" aria-current={es?'page':undefined}>ES</a></nav></div></header>
+<script>
+document.querySelectorAll<HTMLDetailsElement>('.mobile-menu').forEach(menu=>{menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{menu.open=false;}));menu.addEventListener('keydown',event=>{if(event.key==='Escape'){menu.open=false;menu.querySelector('summary')?.focus();}});});
+</script>

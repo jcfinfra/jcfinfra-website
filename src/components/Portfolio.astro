@@ -1,56 +1,22 @@
 ---
-import { azureLabs } from '../data/azureLabs';
-const { lang = 'en' } = Astro.props;
-const es = lang === 'es';
-const copy = es ? {
-  title: 'Ingeniero de Infraestructura TI | Redes | Cloud y Ciberseguridad',
-  intro: 'Soy Juan Carlos Flores, ingeniero electrónico de la Universidad Nacional del Callao, Perú. Tengo experiencia en operación de datacenter Tier III, monitoreo NOC 24x7, redes, virtualización y soporte de infraestructura empresarial.',
-  detail: 'Actualmente profundizo mis conocimientos en Azure, gestión de identidades, seguridad cloud y automatización.',
-  about: 'Perfil', experience: 'Experiencia', skills: 'Competencias', certs: 'Certificaciones', projects: 'Proyectos', contact: 'Contacto',
-  experienceText: 'Experiencia operativa en Global Hitss y Fractalia: monitoreo, gestión de incidentes y SLA, troubleshooting de redes, VMware y soporte coordinado con especialistas. Realicé migraciones de máquinas virtuales con la guía de especialistas.',
-  skillsText: 'VMware vSphere · Cloud Director · NSX · vSAN · Zabbix · SolarWinds · HPE OneView · TCP/IP · VLAN · DNS · Commvault · Scality Ring',
-  certsText: 'Formación y certificaciones en Oracle Cloud Infrastructure, Fortinet y Huawei. Enlaces verificables pendientes de incorporar.',
-  projectsText: 'Próximos laboratorios: Active Directory y Windows Server; monitoreo con Zabbix y Grafana.',
-  cta: 'Contactar', status: 'Portafolio en construcción', foot: 'JCF Infra — Experiencia real, aprendizaje continuo y proyectos verificables.'
-} : {
-  title: 'IT Infrastructure | Networking | Cloud & Cybersecurity',
-  intro: 'I am Juan Carlos Flores, an Electronic Engineer from the National University of Callao, Peru. I have professional experience in Tier III datacenter operations, 24/7 NOC monitoring, networking, virtualization and enterprise infrastructure support.',
-  detail: 'Currently developing further practical skills in Azure, identity management, cloud security and automation.',
-  about: 'About', experience: 'Experience', skills: 'Skills', certs: 'Certifications', projects: 'Projects', contact: 'Contact',
-  experienceText: 'Operational experience at Global Hitss and Fractalia: monitoring, incident and SLA management, network troubleshooting, VMware and coordinated support with specialists. I performed virtual machine migrations with specialist guidance.',
-  skillsText: 'VMware vSphere · Cloud Director · NSX · vSAN · Zabbix · SolarWinds · HPE OneView · TCP/IP · VLAN · DNS · Commvault · Scality Ring',
-  certsText: 'Certification and training background in Oracle Cloud Infrastructure, Fortinet and Huawei. Verified credential links will be added after review.',
-  projectsText: 'Planned labs: Active Directory and Windows Server; Zabbix and Grafana monitoring.',
-  cta: 'Get in touch', status: 'Portfolio under development', foot: 'JCF Infra — Real-world experience, continuous learning and verifiable projects.'
-};
-const sections = [
-  { id: 'experience', label: copy.experience, body: copy.experienceText },
-  { id: 'skills', label: copy.skills, body: copy.skillsText },
-  { id: 'certifications', label: copy.certs, body: copy.certsText },
-  { id: 'projects', label: copy.projects, body: copy.projectsText },
-];
+import Head from './Head.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import {portfolio,labSlugs} from '../data/portfolio';
+import '../styles/global.css';
+interface Props {lang:'en'|'es'}
+const {lang='en'}=Astro.props;const c=portfolio[lang];const es=lang==='es';const labPath=(i:number)=>(es?'/es/labs/':'/labs/')+labSlugs[i]+'/';
 ---
-<!doctype html>
-<html lang={lang}>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={copy.intro} />
-    <meta name="theme-color" content="#0b1220" />
-    <link rel="canonical" href={es ? 'https://jcfinfra.com/es/' : 'https://jcfinfra.com/'} />
-    <link rel="alternate" hreflang="en" href="https://jcfinfra.com/" />
-    <link rel="alternate" hreflang="es" href="https://jcfinfra.com/es/" />
-    <title>Juan Carlos Flores | JCF Infra</title>
-    <style>
-      :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:#e9f0fb;background:#0b1220;font-synthesis:none}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;line-height:1.65}a{color:#6bc5ff}a:focus-visible{outline:3px solid #69c8ff;outline-offset:4px}.wrap{max-width:1050px;margin:auto;padding:0 24px}header{border-bottom:1px solid #24334a;background:#101b2c}header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:74px;flex-wrap:wrap}nav{display:flex;gap:16px;flex-wrap:wrap}nav a{color:#d4e2f6;text-decoration:none;font-size:.91rem}.brand{font-weight:800;letter-spacing:.05em;color:white;text-decoration:none}.lang{border:1px solid #42617e;border-radius:20px;padding:5px 12px}.hero{padding:92px 0 75px;background:radial-gradient(ellipse at 85% 5%,#153d62 0%,transparent 55%)}.eyebrow{color:#70caff;text-transform:uppercase;letter-spacing:.16em;font-size:.8rem;font-weight:700}h1{font-size:clamp(2.3rem,6vw,4.2rem);line-height:1.1;letter-spacing:-.04em;max-width:850px;margin:16px 0}h2{font-size:1.65rem;line-height:1.3}.lead{font-size:1.12rem;color:#c6d4e7;max-width:760px}.muted{color:#a7b8d0}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.button{display:inline-block;border-radius:10px;padding:11px 18px;background:#56b9f2;color:#061523;text-decoration:none;font-weight:700}.button.secondary{background:transparent;border:1px solid #42617e;color:#e5f1ff}main section:not(.hero){padding:32px 0;scroll-margin-top:20px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.panel{background:#111f32;border:1px solid #29415c;border-radius:15px;padding:24px}.panel p{color:#c1d0e4;margin-bottom:0}.status{font-size:.84rem;color:#9ec7e7}.contact{margin:38px 0 70px;padding:30px;border:1px solid #2e5577;border-radius:16px;background:#122840}footer{border-top:1px solid #24334a;color:#9bacc4;padding:24px 0;font-size:.88rem}@media(max-width:720px){header .wrap{padding-top:16px;padding-bottom:16px}nav{gap:12px}.hero{padding:60px 0 48px}.grid{grid-template-columns:1fr}}
-    .azure-project{margin-top:28px;padding-top:18px;border-top:1px solid #29415c}#projects{grid-column:1/-1}</style>
-  </head>
-  <body>
-    <header><div class="wrap"><a class="brand" href={es ? '/es/' : '/'}>JCF INFRA</a><nav aria-label="Main navigation"><a href="#about">{copy.about}</a><a href="#experience">{copy.experience}</a><a href="#skills">{copy.skills}</a><a href="#projects">{copy.projects}</a><a href="#contact">{copy.contact}</a><a class="lang" href={es ? '/' : '/es/'} hreflang={es ? 'en' : 'es'}>{es ? 'EN' : 'ES'}</a></nav></div></header>
-    <main>
-      <section class="hero" id="about"><div class="wrap"><div class="eyebrow">Juan Carlos Flores · Lima, Peru</div><h1>{copy.title}</h1><p class="lead">{copy.intro}</p><p class="muted">{copy.detail}</p><div class="actions"><a class="button" href="mailto:juan@jcfinfra.com">{copy.cta}</a><a class="button secondary" href="https://github.com/jcfinfra" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="button secondary" href="https://www.linkedin.com/in/juan-carlos-aroni/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div></section>
-      <div class="wrap"><div class="grid">{sections.map(section => <section class="panel" id={section.id}><h2>{section.label}</h2>{section.id === 'projects' && <article><p class="status">LAB-001 · Cloudflare WAF · Free</p><h3><a href={es ? '/es/labs/001-cloudflare-waf/' : '/labs/001-cloudflare-waf/'} lang={lang}>{es ? 'Refuerzo de seguridad con Cloudflare' : 'Cloudflare Security Hardening'}</a></h3><p>{es ? 'HTTPS, TLS, HSTS, reglas WAF y límites de solicitudes, con evidencia y limitaciones.' : 'HTTPS, TLS, HSTS, WAF rules and rate limiting, with evidence and explicit validation limits.'}</p></article>}{section.id === 'projects' && Object.entries(azureLabs).map(([id, entry]) => <article class="azure-project"><p class="status">LAB-{id} · Azure · AZ-700 {entry.module}</p><h3><a href={(es ? '/es/labs/' : '/labs/') + entry.slug + '/'} lang={lang}>{entry[es ? 'es' : 'en'].title}</a></h3><p>{entry[es ? 'es' : 'en'].summary}</p></article>)}<p>{section.body}</p></section>)}</div><section id="contact" class="contact"><h2>{copy.contact}</h2><p><a href="mailto:juan@jcfinfra.com">juan@jcfinfra.com</a></p><p class="status">{copy.status}</p></section></div>
-    </main>
-    <footer><div class="wrap">{copy.foot}</div></footer>
-  </body>
-</html>
+<!doctype html><html lang={lang}><head><Head lang={lang} title={c.title} description={c.intro} enPath="/" esPath="/es/"/></head><body><Header lang={lang}/>
+<main id="main" tabindex="-1">
+<section class="hero"><div class="wrap hero-grid"><div><p class="eyebrow">Juan Carlos Flores · {c.location}</p><h1>{c.headline.map(line=><span>{line}</span>)}</h1><p class="lead">{c.lead}</p><div class="actions"><a class="button" href="#projects">{c.explore} <span aria-hidden="true">↗</span></a><a class="button secondary" href="#contact">{c.contact}</a></div></div><aside class="lab-index panel" aria-label={c.labIndex}><p class="eyebrow">{c.labIndex}</p>{c.labTitles.map((title,i)=><a href={labPath(i)}><span class="index-number">0{i+1}</span><span>{title}<small>{['Cloudflare · WAF','Azure · Bicep · IIS','Azure · Load Balancer'][i]}</small></span><span aria-hidden="true">↗</span></a>)}</aside></div></section>
+<section id="about" class="section"><div class="wrap split"><div><span class="section-number">01 / {c.labels[0]}</span><h2>{c.about}</h2></div><div class="about-copy"><p>{c.intro}</p><p class="muted">{c.learning}</p></div></div></section>
+<section id="experience" class="section"><div class="wrap"><div class="section-heading"><span class="section-number">02 / {c.labels[1]}</span><h2>{c.experience}</h2><p>{c.experienceIntro}</p></div><div class="experience-grid">{c.duties.map(([title,text],i)=><article class="panel"><p class="eyebrow">0{i+1}</p><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+<section id="skills" class="section"><div class="wrap"><span class="section-number">03 / {c.labels[2]}</span><h2>{c.skills}</h2><div class="grid-three">{c.groups.map(([title,text])=><article class="panel"><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+<section id="projects" class="section"><div class="wrap"><div class="section-heading"><span class="section-number">04 / {c.labels[3]}</span><h2>{c.projects}</h2><p>{c.projectIntro}</p></div><div class="grid-three">{c.labTitles.map((title,i)=><article class="panel project"><p class="eyebrow">LAB-00{i+1} / {i===0?'Cloudflare':'Azure'}</p><h3><a href={labPath(i)}>{title}</a></h3><p>{c.labSummaries[i]}</p><p class="result">{c.labResults[i]}</p><a class="case-link" href={labPath(i)} aria-label={`${c.read}: ${title}`}>{c.read} <span aria-hidden="true">↗</span></a></article>)}</div><p class="historical muted">{c.historical}</p><div class="planned"><h3>{c.planned}</h3><p class="muted">{c.plans}</p></div></div></section>
+<section id="certifications" class="section"><div class="wrap split"><div><span class="section-number">05 / {c.labels[4]}</span><h2>{c.certs}</h2></div><div><p>{c.certsIntro}</p><div class="credential-names"><span class="badge">Oracle Cloud Infrastructure</span><span class="badge">Fortinet</span><span class="badge">Huawei</span></div><p class="muted">{c.certsNote}</p></div></div></section>
+<section id="contact" class="section"><div class="wrap"><div class="contact-panel panel"><div><span class="section-number">06 / {c.labels[5]}</span><h2>{c.contactTitle}</h2><p>{c.contactText}</p></div><div><a class="email" href="mailto:juan@jcfinfra.com">juan@jcfinfra.com <span aria-hidden="true">↗</span></a><div class="footer-links"><a href="https://github.com/jcfinfra">GitHub ↗</a><a href="https://www.linkedin.com/in/juan-carlos-aroni/">LinkedIn ↗</a></div></div></div></div></section>
+</main><Footer lang={lang}/></body></html>
+<style>
+.hero{padding:88px 0 96px;background:radial-gradient(ellipse at 100% 0%,#14243b 0,transparent 60%)}.hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:64px;align-items:center}h1 span{display:block}.lab-index{padding:28px}.lab-index>a{display:grid;grid-template-columns:24px 1fr 16px;align-items:start;gap:14px;padding:24px 0;border-bottom:1px solid var(--border);color:var(--text);text-decoration:none;font-weight:550;line-height:1.5}.lab-index>a:last-child{border-bottom:0;padding-bottom:0}.lab-index>a:hover{color:var(--accent)}.index-number{font:.8rem 'JetBrains Mono',monospace;color:var(--accent);padding-top:3px}.lab-index small{display:block;color:var(--muted);font-size:.76rem;font-weight:400;margin-top:8px}.split{display:grid;grid-template-columns:1fr 1.2fr;gap:80px}.about-copy{font-size:1.08rem}.experience-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.panel h3{margin-top:0}.project{display:flex;flex-direction:column}.project h3{font-size:1.45rem;line-height:1.3}.project h3 a{color:var(--text);text-decoration:none}.project h3 a:hover{color:var(--accent)}.project .result{font-size:.84rem;border-top:1px solid var(--border);padding-top:18px;color:var(--text);margin-top:auto}.case-link{font-size:.9rem;font-weight:600;min-height:44px;display:flex;align-items:center;justify-content:space-between}.historical{font-size:.8rem;margin:18px 0 32px}.planned{border-left:2px solid var(--border);padding-left:24px;max-width:780px}.planned h3{font-size:1rem}.credential-names{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0}.contact-panel{padding:40px;display:flex;align-items:center;justify-content:space-between;gap:32px}.contact-panel h2{margin-bottom:12px}.email{font-size:clamp(1rem,2.3vw,1.5rem);font-weight:600;display:block;margin-bottom:20px}.contact-panel .footer-links{font-size:.88rem}@media(max-width:1000px){.hero-grid{grid-template-columns:1fr;gap:40px}.hero{padding:56px 0}.lab-index{max-width:680px}.split{grid-template-columns:1fr;gap:12px}.experience-grid{grid-template-columns:1fr}.contact-panel{align-items:flex-start;flex-direction:column}.hero h1{font-size:clamp(2.3rem,7vw,4.5rem)}}@media(max-width:480px){.hero{padding:44px 0 48px}.lab-index{padding:24px}.contact-panel{padding:24px}}
+</style>
