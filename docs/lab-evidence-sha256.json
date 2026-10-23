@@ -1,0 +1,14 @@
+{
+  "labs/001/e01-request.png": "f48de34c31e83b6d8a5593a7eec4aa626d8e2d371b8fd3544b53722d25c0941c",
+  "labs/001/e02-rule.png": "75b83fbd1bb4be8a21d6ebdfb9b939800a56ef6f24e8c0fdfebe78ae25fc7d79",
+  "labs/001/e03-saved.png": "51fd0f1c16d308051a17525308a109859d7b66eb0ab7b7d4ce6da79ac5137278",
+  "labs/001/e04-block.png": "66b408f4bab748a8be61b178014e1a8e35c4844aed4d58a492968fb1e8be6801",
+  "labs/002/e01-backend-health.png": "e8225aea403ab81eb1e4d00fd6788e0b591c8fd6acb40ee270de0195c1cf7a25",
+  "labs/002/e02-backend-vm2.png": "654d96d6fdae9c9649854d56fd781413ec47422e37a5e68c518bff678e11fa07",
+  "labs/002/e03-backend-vm1.png": "a9347321fc89244f1d13453b9dfa92ecd48ee0efd715a1ae950c4ccb3def6108",
+  "labs/003/e01-unhealthy.png": "536b9c5075088c492378d6f4c1acf97949e8f2533fe8d76f7677107eba372679",
+  "labs/003/e02-extension-error.png": "18f5efb1ebd72e86bd91e497d0c69efe4102370272a7f4556798233cb5a093d4",
+  "labs/003/e03-iis-repair.png": "d289c1f393a2320e8bb8f34a9db60d8a2e667b8527915ebd605f7080bc47feb9",
+  "labs/003/e04-healthy.png": "0db1b37c2578b10e4755fa85c56aadc5a11b594c4e7109d4c68cb3e065645caf",
+  "labs/003/e05-client-responses.png": "c169ef0a3dc8a7e73d780624d12c3f23cacd919c9617cac0399e81ee4b957b46"
+}

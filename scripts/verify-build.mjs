@@ -7,6 +7,12 @@ const slugs=['001-cloudflare-waf','002-azure-application-gateway','003-azure-int
 const routes=['/','/es/',...slugs.flatMap(s=>[`/labs/${s}/`,`/es/labs/${s}/`])];
 const fileFor=p=>path.join(dist,p.endsWith('/')?p+'index.html':p);
 const hash=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
+const baseline=JSON.parse(fs.readFileSync('docs/lab-evidence-sha256.json','utf8'));
+assert.equal(Object.keys(baseline).length,12,'baseline evidence count');
+for(const [file,expected] of Object.entries(baseline)){
+ assert.equal(hash(path.join('public',file)),expected,'original evidence changed: '+file);
+ assert.equal(hash(path.join(dist,file)),expected,'published evidence changed: '+file);
+}
 let references=0;const images=new Set();
 for(const route of routes){
  const html=fs.readFileSync(fileFor(route),'utf8');
@@ -32,6 +38,7 @@ for(const route of routes){
  }
 }
 assert.equal(images.size,12);
+assert.deepEqual([...images].sort(),Object.keys(baseline).map(p=>'/'+p).sort(),'evidence inventory');
 const sitemap=fs.readFileSync(fileFor('/sitemap.xml'),'utf8');
 for(const route of routes)assert.ok(sitemap.includes(`<loc>https://jcfinfra.com${route}</loc>`),'sitemap '+route);
 console.log(JSON.stringify({routes:routes.length,images:images.size,internalReferences:references,metadata:'pass',anchors:'pass',imageIntegrity:'pass',sitemap:'pass'},null,2));
