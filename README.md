@@ -4,9 +4,19 @@ Professional portfolio built with Astro and TypeScript. English is the primary l
 
 ## Project status
 
-The website is deployed through Cloudflare Pages. Three case studies are published in English and Spanish. Phases 1 and 2 are closed; visual identity and architecture v1.0 are approved. Phase 3 covers repository and delivery hardening; approval of the design does not mean its implementation is complete.
+The website is deployed through Cloudflare Pages. Three case studies are published in English and Spanish. Phases 1 and 2 established the approved visual identity and architecture; the Phase 3 and Phase 4 releases are recorded below.
 
 Phase 3 repository and delivery hardening is complete as of 21 October 2026. Astro 7.4.1 is published, main is protected and the release was verified in preview and production. See [Phase 3 closeout](docs/PHASE-3-closeout.md) for evidence, remaining improvements and scope limits.
+
+Phase 4 visual implementation was published on 22 October 2026; see [Phase 4 closeout](docs/PHASE-4-closeout.md). Phase 5 documentation work covers all three historical labs; its validation and release status is recorded in [Phase 5 closeout](docs/PHASE-5-closeout.md).
+
+## Laboratory documentation
+
+- [Evidence register](docs/LABS-EVIDENCE.md): public captures, historical records and their limits for LAB-001/002/003.
+- [Reusable lab template](docs/LAB-TEMPLATE.md): objectives, architecture, procedure, costs, validation, provenance and lessons for future exercises.
+- [Publication image baseline](docs/lab-evidence-sha256.json): twelve SHA-256 values preserved from the Phase 5 audit base. Verification compares both source and build images against this baseline; do not regenerate it to conceal an unexpected change.
+
+The case studies are personal learning exercises. New reproduction guides are future procedures, not fresh Azure or WAF tests. Full private histories, original screenshots and deployment parameter files are not publication artifacts. A fourth lab is not required to complete Phase 5.
 
 ## Architecture
 
