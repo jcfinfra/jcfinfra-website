@@ -8,7 +8,7 @@ The website is deployed through Cloudflare Pages. Three case studies are publish
 
 Phase 3 repository and delivery hardening is complete as of 21 October 2026. Astro 7.4.1 is published, main is protected and the release was verified in preview and production. See [Phase 3 closeout](docs/PHASE-3-closeout.md) for evidence, remaining improvements and scope limits.
 
-Phase 4 visual implementation was published on 22 October 2026; see [Phase 4 closeout](docs/PHASE-4-closeout.md). Phase 5 documentation work covers all three historical labs; its validation and release status is recorded in [Phase 5 closeout](docs/PHASE-5-closeout.md).
+Phase 4 visual implementation was published on 22 October 2026; see [Phase 4 closeout](docs/PHASE-4-closeout.md). Phase 5 is complete as of 23 October 2026: all three historical labs were reviewed, the documentation improvements were published, and eight routes plus twelve preserved evidence images were verified in production. See [Phase 5 closeout](docs/PHASE-5-closeout.md) for the PR, CI, deployment and validation limits.
 
 ## Laboratory documentation
 
