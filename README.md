@@ -10,6 +10,12 @@ Phase 3 repository and delivery hardening is complete as of 21 October 2026. Ast
 
 Phase 4 visual implementation was published on 22 October 2026; see [Phase 4 closeout](docs/PHASE-4-closeout.md). Phase 5 is complete as of 23 October 2026: all three historical labs were reviewed, the documentation improvements were published, and eight routes plus twelve preserved evidence images were verified in production. See [Phase 5 closeout](docs/PHASE-5-closeout.md) for the PR, CI, deployment and validation limits.
 
+## Phase 6 CV delivery
+
+The Spanish CV was first published through PR #8. Phase 6 adds the English CV, public Word/PDF downloads without a phone number, bilingual navigation and CV noindex rules. The requested public release is authorized by Juan on 24 October 2026 and proceeds through protected PR checks. See [Phase 6 release record](docs/PHASE-6-closeout.md) for validation and release limits.
+
+The approved Spanish content is `src/pages/es/cv.md`; the English translation is `src/pages/cv.md`. Downloads are under `public/downloads/`. These are public copies without a phone number. Private application masters stay outside the repository. CV HTML is excluded from the sitemap and marked noindex, nofollow; the download headers apply the same directive. robots.txt permits crawling. The four download hashes are recorded in [the CV manifest](docs/cv-downloads-sha256.json).
+
 ## Laboratory documentation
 
 - [Evidence register](docs/LABS-EVIDENCE.md): public captures, historical records and their limits for LAB-001/002/003.
@@ -38,6 +44,7 @@ LAB-001 currently has separate English and Spanish content files.
 | Content | English | Spanish |
 |---|---|---|
 | Portfolio | `/` | `/es/` |
+| CV (new English route pending release) | `/cv/` | `/es/cv/` |
 | Cloudflare security | `/labs/001-cloudflare-waf/` | `/es/labs/001-cloudflare-waf/` |
 | Azure Application Gateway | `/labs/002-azure-application-gateway/` | `/es/labs/002-azure-application-gateway/` |
 | Azure Internal Load Balancer | `/labs/003-azure-internal-load-balancer/` | `/es/labs/003-azure-internal-load-balancer/` |
@@ -92,7 +99,7 @@ Work on a branch, open a PR, inspect the diff and public preview, wait for the r
 
 Before a production change, record the current Pages deployment and source commit. Review the proposed diff, validation results, both languages and evidence images.
 
-After an authorized release, verify the deployment commit, all eight routes, images and navigation. If a regression occurs, restore the recorded Pages deployment and reconcile the repository through a reviewed revert. A later automatic deployment can replace a dashboard rollback.
+After an authorized release, verify the deployment commit, all ten prepared routes, four CV downloads, images and navigation. If a regression occurs, restore the recorded Pages deployment and reconcile the repository through a reviewed revert. A later automatic deployment can replace a dashboard rollback.
 
 ## Content and security
 

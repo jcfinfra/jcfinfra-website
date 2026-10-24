@@ -1,22 +1,24 @@
 ---
 import Footer from '../components/Footer.astro';
+import Head from '../components/Head.astro';
 import '../styles/global.css';
-const title='CV de Juan Carlos Flores Aroni — Infraestructura TI, redes y cloud';
-const description='Experiencia profesional, certificaciones y formación de Juan Carlos Flores Aroni en infraestructura TI, redes y cloud.';
+const lang: 'en'|'es'=Astro.props.frontmatter?.lang==='en'?'en':'es';
+const es=lang==='es';
+const title=es?'CV de Juan Carlos Flores Aroni — Infraestructura TI, redes y cloud':'Juan Carlos Flores Aroni CV — IT infrastructure, networking and cloud';
+const description=es?'Experiencia profesional, certificaciones y formación de Juan Carlos Flores Aroni en infraestructura TI, redes y cloud.':'Professional experience, certifications and training of Juan Carlos Flores Aroni in IT infrastructure, networking and cloud.';
+const fileBase='/downloads/Juan_Carlos_Flores_CV_'+lang.toUpperCase();
 ---
 <!doctype html>
-<html lang="es"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>{title} | JCF Infra</title><meta name="description" content={description}/>
-<link rel="canonical" href="https://jcfinfra.com/es/cv/"/>
-<meta property="og:type" content="website"/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:url" content="https://jcfinfra.com/es/cv/"/><meta property="og:image" content="https://jcfinfra.com/social-card.png"/>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<html lang={lang}><head>
+<Head lang={lang} title={title} description={description} enPath="/cv/" esPath="/es/cv/"/>
+<meta name="robots" content="noindex, nofollow"/>
 </head><body>
-<a class="skip-link" href="#main">Saltar al contenido</a>
-<header class="site-header"><nav class="wrap cv-nav" aria-label="Navegación del CV"><a class="brand" href="/es/">JCF <span>INFRA</span></a><a href="/es/">Volver al portafolio</a><a href="/" lang="en">English portfolio</a></nav></header>
-<main id="main" tabindex="-1" class="wrap cv-content"><article><slot/></article></main>
-<Footer lang="es"/>
+<a class="skip-link" href="#main">{es?'Saltar al contenido':'Skip to content'}</a>
+<header class="site-header"><nav class="wrap cv-nav" aria-label={es?'Navegación del CV':'CV navigation'}><a class="brand" href={es?'/es/':'/'}>JCF <span>INFRA</span></a><a href={es?'/es/':'/'}>{es?'Volver al portafolio':'Back to portfolio'}</a><a href={es?'/cv/':'/es/cv/'} lang={es?'en':'es'}>{es?'CV in English':'CV en español'}</a></nav></header>
+<main id="main" tabindex="-1" class="wrap cv-content"><nav class="cv-downloads" aria-label={es?'Descargar CV':'Download CV'}><a class="button" href={fileBase+'.pdf'} download>{es?'Descargar CV (PDF)':'Download CV (PDF)'}</a><a class="button secondary" href={fileBase+'.docx'} download>{es?'Word editable':'Editable Word'}</a></nav><article><slot/></article></main>
+<Footer lang={lang}/>
 </body></html>
 <style>
 .cv-nav{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding-block:20px}.cv-nav .brand{margin-right:auto}.cv-content{max-width:960px;padding-block:48px 72px;overflow-wrap:anywhere}.cv-content :global(h1){font-size:clamp(2rem,5vw,3.2rem)}.cv-content :global(h2){font-size:1.6rem;margin-top:42px;padding-top:24px;border-top:1px solid var(--border)}.cv-content :global(h3){font-size:1.1rem;margin-top:28px}.cv-content :global(li){margin-bottom:10px}.cv-content :global(a){overflow-wrap:anywhere}@media print{header,footer,.skip-link{display:none}body{background:white;color:black;font-size:10pt}.cv-content{width:100%;max-width:none;padding:0}.cv-content :global(h1){font-size:22pt}.cv-content :global(h2){font-size:14pt;margin-top:20px;padding-top:12px;break-after:avoid}.cv-content :global(h3){break-after:avoid}a{color:black}}
 </style>
+<style>.cv-downloads{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}@media print{.cv-downloads{display:none}}</style>
