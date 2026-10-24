@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 const dist=path.resolve('dist');
 const slugs=['001-cloudflare-waf','002-azure-application-gateway','003-azure-internal-load-balancer'];
-const routes=['/','/es/',...slugs.flatMap(s=>[`/labs/${s}/`,`/es/labs/${s}/`])];
+const routes=['/','/es/','/es/cv/',...slugs.flatMap(s=>[`/labs/${s}/`,`/es/labs/${s}/`])];
 const fileFor=p=>path.join(dist,p.endsWith('/')?p+'index.html':p);
 const hash=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
 const baseline=JSON.parse(fs.readFileSync('docs/lab-evidence-sha256.json','utf8'));
@@ -19,7 +19,7 @@ for(const route of routes){
  assert.match(html,new RegExp(`<html[^>]*lang="${route.startsWith('/es/')?'es':'en'}"`));
  assert.equal((html.match(/<h1[\s>]/g)||[]).length,1,route+' H1');
  assert.ok(html.includes(`rel="canonical" href="https://jcfinfra.com${route}"`),route+' canonical');
- for(const lang of ['en','es'])assert.ok(html.includes(`hreflang="${lang}"`),route+' alternate');
+ for(const lang of (route==='/es/cv/'?[]:['en','es']))assert.ok(html.includes(`hreflang="${lang}"`),route+' alternate');
  for(const field of ['og:title','og:description','og:image','og:url'])assert.ok(html.includes(`property="${field}"`),route+' '+field);
  assert.ok(html.includes('href="#main"'),route+' skip link');
  assert.ok(!/name="robots"[^>]*noindex/.test(html),route+' indexability');
@@ -42,3 +42,7 @@ assert.deepEqual([...images].sort(),Object.keys(baseline).map(p=>'/'+p).sort(),'
 const sitemap=fs.readFileSync(fileFor('/sitemap.xml'),'utf8');
 for(const route of routes)assert.ok(sitemap.includes(`<loc>https://jcfinfra.com${route}</loc>`),'sitemap '+route);
 console.log(JSON.stringify({routes:routes.length,images:images.size,internalReferences:references,metadata:'pass',anchors:'pass',imageIntegrity:'pass',sitemap:'pass'},null,2));
+
+const cv=fs.readFileSync(fileFor('/es/cv/'),'utf8');
+for(const text of ['Capacitación USACH','Oracle Next Education','BMC Helix'])assert.ok(cv.includes(text),'approved CV content: '+text);
+for(const root of ['/','/es/'])assert.ok(fs.readFileSync(fileFor(root),'utf8').includes('href="/es/cv/"'),'CV navigation '+root);
