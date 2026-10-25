@@ -6,7 +6,6 @@ const lang: 'en'|'es'=Astro.props.frontmatter?.lang==='en'?'en':'es';
 const es=lang==='es';
 const title=es?'CV de Juan Carlos Flores Aroni — Infraestructura TI, redes y cloud':'Juan Carlos Flores Aroni CV — IT infrastructure, networking and cloud';
 const description=es?'Experiencia profesional, certificaciones y formación de Juan Carlos Flores Aroni en infraestructura TI, redes y cloud.':'Professional experience, certifications and training of Juan Carlos Flores Aroni in IT infrastructure, networking and cloud.';
-const fileBase='/downloads/Juan_Carlos_Flores_CV_'+lang.toUpperCase();
 ---
 <!doctype html>
 <html lang={lang}><head>
@@ -15,7 +14,7 @@ const fileBase='/downloads/Juan_Carlos_Flores_CV_'+lang.toUpperCase();
 </head><body>
 <a class="skip-link" href="#main">{es?'Saltar al contenido':'Skip to content'}</a>
 <header class="site-header"><nav class="wrap cv-nav" aria-label={es?'Navegación del CV':'CV navigation'}><a class="brand" href={es?'/es/':'/'}>JCF <span>INFRA</span></a><a href={es?'/es/':'/'}>{es?'Volver al portafolio':'Back to portfolio'}</a><a href={es?'/cv/':'/es/cv/'} lang={es?'en':'es'}>{es?'CV in English':'CV en español'}</a></nav></header>
-<main id="main" tabindex="-1" class="wrap cv-content"><nav class="cv-downloads" aria-label={es?'Descargar CV':'Download CV'}><a class="button" href={fileBase+'.pdf'} download>{es?'Descargar CV (PDF)':'Download CV (PDF)'}</a><a class="button secondary" href={fileBase+'.docx'} download>{es?'Word editable':'Editable Word'}</a></nav><article><slot/></article></main>
+<main id="main" tabindex="-1" class="wrap cv-content"><article><slot/></article></main>
 <Footer lang={lang}/>
 </body></html>
 <style>

@@ -1,37 +1,25 @@
-# Phase 6 public CV release record
+# Phase 6 consolidated release — 25 October 2026
 
-## Scope and authorization
+## Current scope
 
-Juan explicitly requested these changes to jcfinfra.com on 24 October 2026. The release includes the already reviewed English CV and wording corrections, public downloads, contact privacy and search-indexing controls. Design, global styles, laboratory content, evidence images, dependencies, DNS and WAF settings are unchanged.
+This record supersedes the download policy of PR #9 (baseline 1a6798cba41c2a7bd4017630af326dfc7efeee4b). Juan authorized the consolidated prompt and its production verification. Public CVs are HTML only at /es/cv/ and /cv/, without phone numbers, with noindex/nofollow and sitemap exclusion. The homepage CV links remain.
 
-Production baseline: PR #8, b8f0ad6530090b0012daf9896f1de66fa9e15f5d. The publication branch contains one clean change from this baseline: local preparation commits containing private downloads are not pushed. Required CI and Cloudflare preview must pass before the protected merge. The PR records its exact head, check results and merge commit; final production verification is delivered separately to Juan after deployment.
+The four former Word/PDF downloads and their obsolete header/hash files are removed. A top-level 404 page prevents Cloudflare Pages from serving the homepage as a successful response for missing downloads. Current-tree removal does not erase Git history, cached copies or previous immutable deployments.
 
-## Public deliverables
+Home and both CVs use the same contact email. Requested wording, location, new experience bullets, availability and NOC exposure qualifiers are aligned in both languages. Employment dates and titles are retained; Tgestiona/Experis dates are unchanged. DNS remains on the home skills list and does not appear in either CV.
 
-- /es/cv/ and /cv/: bilingual general CVs, PDF and editable Word buttons, email/LinkedIn/GitHub contacts, no phone number.
-- /downloads/Juan_Carlos_Flores_CV_ES.pdf and .docx.
-- /downloads/Juan_Carlos_Flores_CV_EN.pdf and .docx.
-- Both HTML CVs have robots: noindex, nofollow; sitemap contains the other eight routes only. robots.txt remains unchanged and allows crawling.
-- All four downloads have scoped X-Robots-Tag: noindex, nofollow; Word has explicit MIME and attachment headers.
+## Validation and boundaries
 
-Only phone-free public copies belong in public/downloads/. Private application versions remain outside the repository and deployment. Do not add identity documents, home address, birth date, marital status or employer access information. Noindex is a crawler instruction, not access control, and existing search listings require recrawling to disappear.
+Local checks: Astro check, build and build verifier. Ten content routes plus the 404 page; twelve laboratory evidence hashes unchanged. Build verification checks no CV download files/links, CV noindex, sitemap exclusion and the unified email. Preview and production HTTP checks are recorded separately in the local delivery report and PR.
 
-## Validation
+Design, stylesheet content, labs, evidence, DNS, WAF and dependencies are unchanged. Removing the obsolete download-specific _headers file does not change the separately managed zone security headers. No security or mail recommendations have been applied.
 
-- Astro check: 22 files; zero errors, warnings and hints. Static build: ten HTML pages.
-- Build verifier: ten routes, 310 internal references, metadata, anchors, CV noindex, sitemap exclusion, robots crawl allowance and download headers.
-- Twelve original laboratory evidence images retain their recorded SHA-256 values.
-- Four public download hashes recorded in cv-downloads-sha256.json and enforced by the build verifier.
-- Both Word documents retain a single-column, no-table layout. Exported with installed Microsoft Word; three A4 PDF pages per language, selectable text. Packaged LibreOffice renderer unavailable, so Word-exported PDFs rendered with Poppler and all six pages visually inspected.
-- Full source content checked against DOCX and PDF; nine expected hyperlink destinations per language. Phone absence checked in DOCX XML and extracted PDF text/metadata. Private originals preserved locally.
-- npm audit --audit-level=high passed. One existing moderate fast-uri advisory remains; dependency maintenance is outside this content/privacy release.
+Private application documents and backups are outside this repository. All content and metadata were checked against the corrected sources. Both private exports currently have four pages: a fixed certification page break follows a spilled ONPE bullet. They remain drafts until Juan approves a pagination-only adjustment and the three-page limit is verified. No layout reduction was applied.
 
-Production checks must independently confirm successful Cloudflare deployment, both CV routes, four downloads and hashes, PDF noindex headers, unchanged email obfuscation, sitemap/robots behavior and query-string navigation. A local build does not establish edge-header behavior.
+Remote reachable branches, tags and PR refs were inspected: no master or private CV document matched the inspected files; four prior phone-free public document blobs and an older HTML CV containing a phone remain in history. Do not push local preparation branches containing private artifacts. Historical deletion requires a separately reviewed cleanup.
 
-## Analytics and LinkedIn
+## Analytics and LinkedIn (unchanged)
 
-Cloudflare Web Analytics for jcfinfra.com was verified in the authenticated dashboard: Automatic setup, recorded page views and visits. No settings change was needed. The site accepts ordinary query parameters, but Web Analytics does not collect query strings or custom events; a report grouped by ?ref=company is not available. Referer is a different metric.
+Cloudflare Web Analytics was previously verified in the dashboard. Query parameters work for navigation, but Web Analytics does not collect query strings, so it cannot group visits by ?ref=company. Referer is a different dimension. See the [official FAQ](https://developers.cloudflare.com/web-analytics/faq/).
 
-Dashboard path: account > Observability > Analytics > Web analytics > jcfinfra.com > Page views. Select the date range, then Path or Referer. See the [official FAQ](https://developers.cloudflare.com/web-analytics/faq/) and [dimensions](https://developers.cloudflare.com/web-analytics/data-metrics/dimensions/).
-
-LinkedIn is instructions-only: website in Contact info; Application Gateway, internal Load Balancer and Cloudflare WAF case studies in Featured. Exclude the CV from Featured. No public profile edit or employer contact was performed.
+LinkedIn remains instructions-only: website in Contact info; Application Gateway, internal Load Balancer and Cloudflare WAF case studies in Featured; exclude the CV. No profile edit was performed.
