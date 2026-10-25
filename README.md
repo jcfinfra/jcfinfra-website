@@ -12,9 +12,9 @@ Phase 4 visual implementation was published on 22 October 2026; see [Phase 4 clo
 
 ## Phase 6 CV delivery
 
-The Spanish CV was first published through PR #8. Phase 6 adds the English CV, public Word/PDF downloads without a phone number, bilingual navigation and CV noindex rules. The requested public release is authorized by Juan on 24 October 2026 and proceeds through protected PR checks. See [Phase 6 release record](docs/PHASE-6-closeout.md) for validation and release limits.
+The bilingual CV pages remain available as HTML, without public Word/PDF downloads or phone numbers. The consolidated Phase 6 release removes the four previous downloads, unifies contact email and applies the requested content corrections. See [Phase 6 release record](docs/PHASE-6-closeout.md).
 
-The approved Spanish content is `src/pages/es/cv.md`; the English translation is `src/pages/cv.md`. Downloads are under `public/downloads/`. These are public copies without a phone number. Private application masters stay outside the repository. CV HTML is excluded from the sitemap and marked noindex, nofollow; the download headers apply the same directive. robots.txt permits crawling. The four download hashes are recorded in [the CV manifest](docs/cv-downloads-sha256.json).
+The Spanish source is `src/pages/es/cv.md`; the English source is `src/pages/cv.md`. Both are marked noindex, nofollow and excluded from the sitemap; robots.txt allows crawling. A top-level 404 page ensures removed file URLs return an actual 404 on Cloudflare Pages. Application documents remain outside this repository. Removing current files does not erase historical Git objects or old deployments.
 
 ## Laboratory documentation
 
@@ -44,7 +44,7 @@ LAB-001 currently has separate English and Spanish content files.
 | Content | English | Spanish |
 |---|---|---|
 | Portfolio | `/` | `/es/` |
-| CV (new English route pending release) | `/cv/` | `/es/cv/` |
+| CV (HTML only) | `/cv/` | `/es/cv/` |
 | Cloudflare security | `/labs/001-cloudflare-waf/` | `/es/labs/001-cloudflare-waf/` |
 | Azure Application Gateway | `/labs/002-azure-application-gateway/` | `/es/labs/002-azure-application-gateway/` |
 | Azure Internal Load Balancer | `/labs/003-azure-internal-load-balancer/` | `/es/labs/003-azure-internal-load-balancer/` |
@@ -99,7 +99,7 @@ Work on a branch, open a PR, inspect the diff and public preview, wait for the r
 
 Before a production change, record the current Pages deployment and source commit. Review the proposed diff, validation results, both languages and evidence images.
 
-After an authorized release, verify the deployment commit, all ten prepared routes, four CV downloads, images and navigation. If a regression occurs, restore the recorded Pages deployment and reconcile the repository through a reviewed revert. A later automatic deployment can replace a dashboard rollback.
+After an authorized release, verify the deployment commit, all ten content routes, HTTP 404 for the four removed CV downloads, images and navigation. If a regression occurs, restore the recorded Pages deployment and reconcile the repository through a reviewed revert. A later automatic deployment can replace a dashboard rollback.
 
 ## Content and security
 

@@ -5,19 +5,19 @@ lang: en
 
 # Juan Carlos Flores Aroni
 
-**Electronics Engineer | IT infrastructure, networking and cloud**
+**Electronics engineer | IT infrastructure, networking and cloud**
 
-Lima, Peru · juancflores.aroni@gmail.com  
+Lima, Peru · juan@jcfinfra.com  
 [LinkedIn](https://www.linkedin.com/in/juan-carlos-aroni/) · [GitHub](https://github.com/jcfinfra)
 
 ## Professional profile
 
-Electronics engineer with experience in NOC operations, network and infrastructure support at Claro's Tier III datacenter, and technology oversight during electoral processes. Experienced in monitoring, incident handling, SLA tracking and coordination with specialist teams. Certified as a Microsoft Azure Network Engineer Associate, Oracle Cloud Infrastructure Architect Associate and Fortinet Certified Professional. Building practical cloud networking and security skills through documented personal labs at JCF Infra.
+Electronics engineer with experience in NOC operations, network and infrastructure support at Claro's Tier III datacenter, and technology oversight during electoral processes. Experienced in monitoring, incident handling, SLA tracking and coordination with specialized teams. Certified as a Microsoft Azure Network Engineer Associate, Oracle Cloud Infrastructure Architect Associate and Fortinet Certified Professional. Building practical cloud networking and security skills through documented personal labs at JCF Infra.
 
 ## Technical skills
 
 - **Infrastructure monitoring:** Zabbix, SolarWinds, Grafana and VMware Aria Operations; dashboard review and alert tracking. Working knowledge of Huawei NetEco for datacenter monitoring.
-- **Virtualization and hardware:** VMware vSphere/vCenter, HPE OneView and HPE iLO; operational support for infrastructure and virtual machines in coordination with specialists.
+- **Virtualization and hardware:** VMware vSphere/vCenter, HPE OneView and HPE iLO; operational support for infrastructure and virtual machines in coordination with specialists; operational exposure to VMware Cloud Director, NSX and vSAN from the NOC.
 - **Operations and service management:** BMC Helix ITSM / Smart IT, ticket handling, incident management, escalation and SLA tracking.
 - **Backup and storage:** Commvault alert tracking and hands-on use of Scality consoles.
 - **Networking:** connectivity troubleshooting, TCP/IP, VLANs and L1 support with L2-level troubleshooting; familiarity with Huawei NCE-Campus and NCE-Fabric consoles.
@@ -28,7 +28,7 @@ Electronics engineer with experience in NOC operations, network and infrastructu
 ## Professional experience
 
 ### Applied Technology Inspector — Jurado Nacional de Elecciones
-**January–June 2026 · Lima, Peru · Contractor (independent services agreement)**
+**January–June 2026 · San Borja, Lima, Peru**
 
 - Inspected the technology infrastructure, networks and platforms of the electoral computing center during the 2026 General Elections.
 - Verified functional tests, zero-count initialization and electoral software operation in accordance with established procedures.
@@ -38,7 +38,7 @@ Electronics engineer with experience in NOC operations, network and infrastructu
 **December 2023–February 2026 · Lima, Peru**
 
 - Monitored infrastructure at Claro's Tier III datacenter and handled incidents according to severity and service SLAs.
-- Used VMware vSphere/vCenter, HPE OneView and HPE iLO for operational infrastructure support in coordination with specialist teams.
+- Used VMware vSphere/vCenter, HPE OneView and HPE iLO for operational infrastructure support in coordination with specialized teams.
 - Reviewed alerts and dashboards in Zabbix, SolarWinds, Grafana, VMware Aria Operations and Commvault to identify incidents and manage escalation; also worked with Huawei NetEco, NCE and Scality consoles in the NOC environment.
 - Managed tickets and incident follow-up through BMC Helix / Smart IT, coordinating with networking, security and cloud teams and service providers.
 - Maintained operational records and documentation of incidents, availability and escalation using SharePoint and Excel.
@@ -55,12 +55,14 @@ Electronics engineer with experience in NOC operations, network and infrastructu
 
 - Verified technology infrastructure, networks and communication tests at the electoral computing center during the 2022 Regional and Municipal Elections.
 - Documented incidents, findings and evidence, and coordinated technical support for resolution.
+- Verified the installation and implementation of critical equipment and services, and prepared technical reports documenting the corrective actions taken.
 
 ### Inspector / Analyst — ATU
 **August 2020–June 2022 · Lima, Peru**
 
-- Managed inspection documentation and evidence in SharePoint; updated databases and validated information.
+- Managed inspection documentation and evidence in SharePoint and validated information.
 - Tracked deliverables and performed document quality checks to maintain record traceability.
+- Updated databases and information sheets for Metropolitano and tourist services, and assigned evidence to staff for classification and renaming.
 
 ### Presales Engineer — Experis and Tgestiona
 **Experis / Manpower: October 2019**  
@@ -68,11 +70,14 @@ Electronics engineer with experience in NOC operations, network and infrastructu
 
 - Prepared technical proposals for connectivity and telecommunications services for corporate customers.
 - Coordinated with sales, engineering and suppliers to validate scope, coverage, capacity and costs.
+- Designed telecommunications, security, fiber-optic, radio-link, VSAT and managed-service solutions, including equipment sizing and scope definition.
 
 ### Technical Device Operator — ONPE
-**November–December 2018 · Contractor (independent services agreement)**
+**November–December 2018**
 
 - Provided technical device operation services within the Electoral IT and Technology Management Office during the 2018 Second Regional Election and Referendum.
+- Configured, tested and operated cryptographic equipment and technological devices used in the electoral process.
+- Performed functional validation, monitoring and technical support, and recorded incidents, evidence and test results.
 
 ## Certifications
 

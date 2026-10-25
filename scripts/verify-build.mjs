@@ -57,22 +57,20 @@ const cv=fs.readFileSync(fileFor('/es/cv/'),'utf8');
 for(const text of ['Capacitación USACH','Oracle Next Education','BMC Helix'])assert.ok(cv.includes(text),'approved CV content: '+text);
 for(const [root,cvPath] of [['/','/cv/'],['/es/','/es/cv/']])assert.ok(fs.readFileSync(fileFor(root),'utf8').includes(`href="${cvPath}"`),'CV navigation '+root);
 
-for(const [route,lang,other] of [['/cv/','EN','/es/cv/'],['/es/cv/','ES','/cv/']]){
+for(const [route,other] of [['/cv/','/es/cv/'],['/es/cv/','/cv/']]){
  const html=fs.readFileSync(fileFor(route),'utf8');
  assert.ok(html.includes(`href="${other}"`),'CV language switch '+route);
- for(const ext of ['pdf','docx']){
-  const target='/downloads/Juan_Carlos_Flores_CV_'+lang+'.'+ext;
-  assert.ok(html.includes(`href="${target}"`),'download link '+route);
-  const bytes=fs.readFileSync(fileFor(target));
-  assert.ok(bytes.length>1000,'nonempty CV '+target);
-  assert.equal(bytes.subarray(0,ext==='pdf'?5:2).toString(),ext==='pdf'?'%PDF-':'PK','file format '+target);
-  assert.equal(hash(fileFor(target)),hash(path.join('public',target)),'download integrity '+target);
- }
+ assert.ok(!/\/downloads\/|\.docx\b|\.pdf\b/.test(html),'no CV download links '+route);
+ assert.ok(html.includes('juan@jcfinfra.com'),'unified CV email '+route);
+ assert.ok(!/juancflores\.aroni@gmail\.com|Locación de servicios|independent service|Contractor|Cisco CCNA|Redes Cisco/i.test(html),'removed CV content '+route);
 }
-const cvHashes=JSON.parse(fs.readFileSync('docs/cv-downloads-sha256.json','utf8'));
-assert.equal(Object.keys(cvHashes).length,4,'CV manifest count');
-for(const [name,expected] of Object.entries(cvHashes))assert.equal(hash(fileFor('/downloads/'+name)),expected,'validated CV changed '+name);
-const headers=fs.readFileSync(fileFor('/_headers'),'utf8');
-for(const lang of ['ES','EN'])assert.ok(headers.includes('/downloads/Juan_Carlos_Flores_CV_'+lang+'.docx'),'Word download header '+lang);
-for(const lang of ['ES','EN'])assert.ok(headers.includes('/downloads/Juan_Carlos_Flores_CV_'+lang+'.pdf\n  X-Robots-Tag: noindex, nofollow'),'PDF noindex '+lang);
-console.log('Bilingual CV navigation and four downloadable artifacts: pass');
+for(const root of ['/','/es/']){
+ const html=fs.readFileSync(fileFor(root),'utf8');
+ assert.ok(html.includes('Global Hitss (Claro)'),'home employer context '+root);
+ assert.ok(html.includes('VMware Cloud Director'),'NOC exposure '+root);
+ assert.ok(!html.includes('juancflores.aroni@gmail.com'),'unified homepage email');
+}
+for(const lang of ['ES','EN'])for(const ext of ['pdf','docx'])assert.ok(!fs.existsSync(fileFor('/downloads/Juan_Carlos_Flores_CV_'+lang+'.'+ext)),'download removed');
+assert.ok(fs.existsSync(path.join(dist,'404.html')),'Cloudflare real 404 response');
+assert.ok(!sitemap.includes('/404/'),'404 excluded from sitemap');
+console.log('Bilingual CV privacy, removed downloads, unified email and 404 page: pass');
