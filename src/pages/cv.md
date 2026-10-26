@@ -55,7 +55,7 @@ Electronics engineer with experience in NOC operations, network and infrastructu
 
 - Verified technology infrastructure, networks and communication tests at the electoral computing center during the 2022 Regional and Municipal Elections.
 - Documented incidents, findings and evidence, and coordinated technical support for resolution.
-- Verified the installation and implementation of critical equipment and services, and prepared technical reports documenting the corrective actions taken.
+- Prepared technical reports on corrective actions taken on critical equipment and services.
 
 ### Inspector / Analyst — ATU
 **August 2020–June 2022 · Lima, Peru**
@@ -73,7 +73,7 @@ Electronics engineer with experience in NOC operations, network and infrastructu
 - Designed telecommunications, security, fiber-optic, radio-link, VSAT and managed-service solutions, including equipment sizing and scope definition.
 
 ### Technical Device Operator — ONPE
-**November–December 2018**
+**November–December 2018 · Lima, Peru**
 
 - Provided technical device operation services within the Electoral IT and Technology Management Office during the 2018 Second Regional Election and Referendum.
 - Configured, tested and operated cryptographic equipment and technological devices used in the electoral process.

@@ -54,7 +54,7 @@ Ingeniero electrónico con experiencia en operaciones NOC, soporte de redes e in
 
 - Verifiqué infraestructura tecnológica, redes y pruebas de comunicaciones del centro de cómputo electoral durante las Elecciones Regionales y Municipales 2022.
 - Documenté incidencias, hallazgos y evidencias, y coordiné soporte técnico para su atención.
-- Verifiqué la instalación e implementación de equipos y servicios críticos y elaboré informes técnicos con las acciones correctivas realizadas.
+- Elaboré informes técnicos sobre las acciones correctivas realizadas en equipos y servicios críticos.
 
 ### Fiscalizador / Analista — ATU
 **Agosto de 2020–junio de 2022 · Lima, Perú**
@@ -72,7 +72,7 @@ Ingeniero electrónico con experiencia en operaciones NOC, soporte de redes e in
 - Diseñé soluciones de telecomunicaciones, seguridad, fibra óptica, radioenlace, VSAT y servicios gestionados, con dimensionamiento de equipos y alcances.
 
 ### Operador Técnico de Dispositivos — ONPE
-**Noviembre–diciembre de 2018**
+**Noviembre–diciembre de 2018 · Lima, Perú**
 
 - Presté servicios como operador técnico de dispositivos en la Gerencia de Informática y Tecnología Electoral durante la Segunda Elección Regional y Referéndum 2018.
 - Configuré, probé y operé equipos criptográficos y dispositivos tecnológicos utilizados en el proceso electoral.
