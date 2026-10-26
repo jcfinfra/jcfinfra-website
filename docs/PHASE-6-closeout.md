@@ -26,3 +26,9 @@ LinkedIn remains instructions-only: website in Contact info; Application Gateway
 
 ## Exact download route response
 Production retained old download assets after single-file and full cache purges. A Pages Function now explicitly returns 404/no-store/noindex for only the four removed URLs. _routes.json limits invocation to those paths; the rest of the site remains static. GET, HEAD, query parameters and unrelated-path fallback are tested. No new dependencies or zone rules are introduced. Old immutable deployments and Git history remain outside this change.
+
+## Definitive closeout
+
+The final requested content changes add Lima to the ONPE 2018 date line and focus the third Tayacaja bullet on technical reports of corrective actions, in both languages. Employment dates, roles and certifications remain unchanged. Published noindex, sitemap exclusion and crawl allowance were verified directly on the custom domain with uncached requests. No old wording, phone or download buttons appeared.
+
+Private ES/EN documents remain outside the repository. Their approved fixed certification page break was removed; both Word exports have three pages, minimum 10 pt type and margins above 1.5 cm. All six pages were visually reviewed and full content and neutral metadata checked. The old local phase-6-completion branch still contains private document history; it was not pushed or deleted. Final production results and manual-only actions are recorded in the local continuity document. No cache purge, old-deployment deletion, email test, LinkedIn edit, dependency or security-setting change is part of this final release.
