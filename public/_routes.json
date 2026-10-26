@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "include": [
+    "/downloads/Juan_Carlos_Flores_CV_ES.pdf",
+    "/downloads/Juan_Carlos_Flores_CV_ES.docx",
+    "/downloads/Juan_Carlos_Flores_CV_EN.pdf",
+    "/downloads/Juan_Carlos_Flores_CV_EN.docx"
+  ],
+  "exclude": []
+}
