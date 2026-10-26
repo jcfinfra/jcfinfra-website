@@ -23,3 +23,6 @@ Remote reachable branches, tags and PR refs were inspected: no master or private
 Cloudflare Web Analytics was previously verified in the dashboard. Query parameters work for navigation, but Web Analytics does not collect query strings, so it cannot group visits by ?ref=company. Referer is a different dimension. See the [official FAQ](https://developers.cloudflare.com/web-analytics/faq/).
 
 LinkedIn remains instructions-only: website in Contact info; Application Gateway, internal Load Balancer and Cloudflare WAF case studies in Featured; exclude the CV. No profile edit was performed.
+
+## Exact download route response
+Production retained old download assets after single-file and full cache purges. A Pages Function now explicitly returns 404/no-store/noindex for only the four removed URLs. _routes.json limits invocation to those paths; the rest of the site remains static. GET, HEAD, query parameters and unrelated-path fallback are tested. No new dependencies or zone rules are introduced. Old immutable deployments and Git history remain outside this change.
