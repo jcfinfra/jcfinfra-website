@@ -1,10 +1,10 @@
 ---
-interface Props {lang:'en'|'es';title:string;description:string;enPath:string;esPath:string}
-const {lang,title,description,enPath,esPath}=Astro.props;
+interface Props {lang:'en'|'es';title:string;description:string;enPath:string;esPath:string;errorPage?:boolean}
+const {lang,title,description,enPath,esPath,errorPage=false}=Astro.props;
 const base='https://jcfinfra.com';const canonical=base+(lang==='es'?esPath:enPath);
 ---
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content={description}/><meta name="theme-color" content="#0B1220"/><title>{title} | JCF Infra</title>
-<link rel="canonical" href={canonical}/><link rel="alternate" hreflang="en" href={base+enPath}/><link rel="alternate" hreflang="es" href={base+esPath}/>{enPath==='/'&&<link rel="alternate" hreflang="x-default" href={base+'/'}/>}
+{!errorPage&&<><link rel="canonical" href={canonical}/><link rel="alternate" hreflang="en" href={base+enPath}/><link rel="alternate" hreflang="es" href={base+esPath}/>{enPath==='/'&&<link rel="alternate" hreflang="x-default" href={base+'/'}/>}</>}
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/><link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin/>
-<meta property="og:type" content="website"/><meta property="og:site_name" content="JCF Infra"/><meta property="og:title" content={title+' | JCF Infra'}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/><meta property="og:locale" content={lang==='es'?'es_PE':'en_US'}/><meta property="og:locale:alternate" content={lang==='es'?'en_US':'es_PE'}/><meta property="og:image" content={base+'/social-card.png'}/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:alt" content="JCF Infra — Infrastructure · Networks · Cloud · Security"/>
+<meta property="og:type" content="website"/><meta property="og:site_name" content="JCF Infra"/><meta property="og:title" content={title+' | JCF Infra'}/><meta property="og:description" content={description}/>{!errorPage&&<meta property="og:url" content={canonical}/>}<meta property="og:locale" content={lang==='es'?'es_PE':'en_US'}/><meta property="og:locale:alternate" content={lang==='es'?'en_US':'es_PE'}/><meta property="og:image" content={base+'/social-card.png'}/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:alt" content="JCF Infra — Infrastructure · Networks · Cloud · Security"/>
 <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content={title+' | JCF Infra'}/><meta name="twitter:description" content={description}/><meta name="twitter:image" content={base+'/social-card.png'}/>
