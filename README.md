@@ -12,6 +12,8 @@ Phase 4 visual implementation was published on 22 October 2026; see [Phase 4 clo
 
 ## Phase 6 CV delivery
 
+Phase 7 security, SEO and analytics transparency changes were released on 28 October 2026. See the [Phase 7 release record](docs/PHASE-7-closeout.md) for validation, owner-reported zoom checks and residual limits, and the [maintenance and recovery runbook](docs/MAINTENANCE.md) for ongoing operation.
+
 The bilingual CV pages remain available as HTML, without public Word/PDF downloads or phone numbers. The consolidated Phase 6 release removes the four previous downloads, unifies contact email and applies the requested content corrections. See [Phase 6 release record](docs/PHASE-6-closeout.md).
 
 The Spanish source is `src/pages/es/cv.md`; the English source is `src/pages/cv.md`. Both are marked noindex, nofollow and excluded from the sitemap; robots.txt allows crawling. A top-level 404 page ensures removed file URLs return an actual 404 on Cloudflare Pages. Application documents remain outside this repository. Removing current files does not erase historical Git objects or old deployments.
