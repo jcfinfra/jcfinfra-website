@@ -7,7 +7,7 @@ import '../styles/global.css';
 interface Props {lang:'en'|'es'}
 const {lang='en'}=Astro.props;const c=portfolio[lang];const es=lang==='es';const labPath=(i:number)=>(es?'/es/labs/':'/labs/')+labSlugs[i]+'/';
 ---
-<!doctype html><html lang={lang}><head><Head lang={lang} title={c.title} description={c.intro} enPath="/" esPath="/es/"/></head><body><Header lang={lang}/>
+<!doctype html><html lang={lang}><head><Head lang={lang} title={c.title} description={c.description} enPath="/" esPath="/es/"/></head><body><Header lang={lang}/>
 <main id="main" tabindex="-1">
 <section class="hero"><div class="wrap hero-grid"><div><p class="eyebrow">Juan Carlos Flores · {c.location}</p><h1>{c.headline.map(line=><span>{line}</span>)}</h1><p class="lead">{c.lead}</p><div class="actions"><a class="button" href="#projects">{c.explore} <span aria-hidden="true">↗</span></a><a class="button secondary" href="#contact">{c.contact}</a><a class="button secondary" href={es?'/es/cv/':'/cv/'} lang={lang}>{es ? "Ver CV" : "View CV"}</a></div></div><aside class="lab-index panel" aria-label={c.labIndex}><p class="eyebrow">{c.labIndex}</p>{c.labTitles.map((title,i)=><a href={labPath(i)}><span class="index-number">0{i+1}</span><span>{title}<small>{['Cloudflare · WAF','Azure · Bicep · IIS','Azure · Load Balancer'][i]}</small></span><span aria-hidden="true">↗</span></a>)}</aside></div></section>
 <section id="about" class="section"><div class="wrap split"><div><span class="section-number">01 / {c.labels[0]}</span><h2>{c.about}</h2></div><div class="about-copy"><p>{c.intro}</p><p class="muted">{c.learning}</p><p>{c.availability}</p></div></div></section>

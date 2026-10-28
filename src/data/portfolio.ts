@@ -1,5 +1,6 @@
 export const portfolio = {
  en: {
+ description:'Juan Carlos Flores: IT infrastructure, NOC and networking experience in Peru, with documented personal labs in Azure and cloud security.',
  title:'Juan Carlos Flores — IT infrastructure, networks and cloud',location:'Lima, Peru',headline:['IT infrastructure.','Networks, cloud','and security.'],lead:'Hands-on operations experience. Personal labs with documented evidence.',explore:'Explore projects',contact:'Get in touch',labIndex:'Documented labs',
  availability:'Open to infrastructure, NOC and cloud roles · Lima or remote.',nocExposure:'Operational exposure from the NOC: VMware Cloud Director · NSX · vSAN',
  about:'An operations background. A practical approach.',intro:'I am Juan Carlos Flores, an Electronic Engineer from the National University of Callao, Peru. My experience spans Tier III datacenter operations, 24/7 NOC monitoring, networking, virtualization and enterprise infrastructure support.',learning:'I am developing further practical skills in Azure, identity management, cloud security and automation.',
@@ -9,6 +10,7 @@ export const portfolio = {
  certs:'Certifications & training',certsIntro:'Selected certifications with public verification links.',certsNote:'Additional training in Linux, Huawei Datacom, cybersecurity and programming is listed separately in the CV.',contactTitle:'Let’s connect.',contactText:'For conversations about infrastructure, networking, cloud and security.',labels:['About','Experience','Skills','Projects','Credentials','Contact']
  },
  es: {
+ description:'Juan Carlos Flores: experiencia en infraestructura TI, NOC y redes en Perú, con laboratorios personales documentados de Azure y seguridad cloud.',
  title:'Juan Carlos Flores — Infraestructura TI, redes y cloud',location:'Lima, Perú',headline:['Infraestructura TI.','Redes, cloud','y seguridad.'],lead:'Experiencia práctica en operaciones. Laboratorios personales con evidencia documentada.',explore:'Ver proyectos',contact:'Contactar',labIndex:'Laboratorios documentados',
  availability:'Disponible para roles de infraestructura, NOC y cloud · Lima o remoto.',nocExposure:'Contacto operativo desde el NOC: VMware Cloud Director · NSX · vSAN',
  about:'Experiencia operativa. Un enfoque práctico.',intro:'Soy Juan Carlos Flores, ingeniero electrónico de la Universidad Nacional del Callao, Perú. Tengo experiencia en operación de datacenter Tier III, monitoreo NOC 24x7, redes, virtualización y soporte de infraestructura empresarial.',learning:'Actualmente profundizo mis conocimientos prácticos en Azure, gestión de identidades, seguridad cloud y automatización.',
