@@ -64,8 +64,8 @@ const sections = [
           <figure>
             <img src={src} width={width} height={height} alt={caption[lang]} loading="lazy" decoding="async" />
             <figcaption>{id} · {caption[lang]}</figcaption>
-            <a class="evidence-open" href={src} aria-label={(es ? 'Abrir captura ' : 'Open screenshot ') + id}>
-              {es ? 'Abrir captura publicada' : 'Open published screenshot'} ↗
+            <a class="evidence-open" href={src}>
+              {es ? 'Abrir captura publicada' : 'Open published screenshot'} {id} <span aria-hidden="true">↗</span>
             </a>
           </figure>
         );
