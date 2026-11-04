@@ -9,7 +9,10 @@ const fileFor=p=>path.join(dist,p.endsWith('/')?p+'index.html':p);
 const hash=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
 const baseline=JSON.parse(fs.readFileSync('docs/lab-evidence-sha256.json','utf8'));
 assert.equal(Object.keys(baseline).length,12,'baseline evidence count');
-for(const [file,expected] of Object.entries(baseline)){
+const lab004=JSON.parse(fs.readFileSync('docs/lab-004-evidence-sha256.json','utf8'));
+assert.equal(Object.keys(lab004).length,9,'LAB-004 evidence count');
+const inventory={...baseline,...lab004};
+for(const [file,expected] of Object.entries(inventory)){
  assert.equal(hash(path.join('public',file)),expected,'original evidence changed: '+file);
  assert.equal(hash(path.join(dist,file)),expected,'published evidence changed: '+file);
 }
@@ -42,8 +45,7 @@ for(const route of routes){
   assert.equal(hash(fileFor(src)),hash(path.join('public',src)),'image integrity '+src);
  }
 }
-assert.equal(images.size,12);
-assert.deepEqual([...images].sort(),Object.keys(baseline).map(p=>'/'+p).sort(),'evidence inventory');
+assert.deepEqual([...images].sort(),Object.keys(inventory).map(p=>'/'+p).sort(),'evidence inventory');
 const sitemap=fs.readFileSync(fileFor('/sitemap.xml'),'utf8');
 for(const route of routes){
  const isCv=route==='/cv/'||route==='/es/cv/';

@@ -1,0 +1,11 @@
+{
+  "labs/004/e01-debian-iso.png": "e7456e2c8e21707e5be95e5577b92b5d7f14efeaf062f38243565d891a2e0077",
+  "labs/004/e02-vm100-hardware.png": "590aace8e3e89491180225dc81d9960e6e7e126142b54759b47176a399cc5cce",
+  "labs/004/e03-ssh.png": "677b217b6a0a9a18b3a37be6c3daaed0223e28262f44220d531f849d88f080fe",
+  "labs/004/e04-guest-agent.png": "c4451ac8125754e48b7f7dca70fefbba60d07c0a4a40b32952fbbe3d8a439f2d",
+  "labs/004/e05-thermal.png": "25050ec526c12382cbe88995b354c17cdb41991a2dde43c5952d18a44a2f0f4d",
+  "labs/004/e06-host-kernel.png": "6f54d51242ae3f2aad0f13cec9ea1696fc4d5d98a368cbae43a6101392f70594",
+  "labs/004/e07-vm-backup.png": "f1dd7dae1529e96d4bfaad11fadd05954077aa34ce6396092bd6d864a5beca99",
+  "labs/004/e08-backup-hashes.png": "076824cda4a75dca4fe654b69fba14982061fd558715428ef2e066c6fb58526a",
+  "labs/004/e09-restore-vm.png": "ada71656b19da83775ababbda9bf08ff0e18738c59ff76c14011c414479297f4"
+}
