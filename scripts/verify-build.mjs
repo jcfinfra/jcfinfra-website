@@ -3,7 +3,7 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 const dist=path.resolve('dist');
-const slugs=['001-cloudflare-waf','002-azure-application-gateway','003-azure-internal-load-balancer'];
+const slugs=['001-cloudflare-waf','002-azure-application-gateway','003-azure-internal-load-balancer','004-proxmox-homelab'];
 const routes=['/','/es/','/cv/','/es/cv/',...slugs.flatMap(s=>[`/labs/${s}/`,`/es/labs/${s}/`])];
 const fileFor=p=>path.join(dist,p.endsWith('/')?p+'index.html':p);
 const hash=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');

@@ -1,0 +1,63 @@
+---
+import LabLayout from '../layouts/LabLayout.astro';
+import { proxmoxLab } from '../data/proxmoxLab';
+interface Props { lang: 'en' | 'es'; }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const copy = proxmoxLab[lang];
+const slug = '004-proxmox-homelab';
+const sections = [
+  { id: 'architecture', label: es ? 'Arquitectura' : 'Architecture' },
+  { id: 'implementation', label: es ? 'Implementación' : 'Implementation' },
+  { id: 'validation', label: es ? 'Validación y recuperación' : 'Validation and recovery' },
+  { id: 'limits', label: es ? 'Límites y aprendizajes' : 'Limits and lessons' },
+];
+---
+<LabLayout lang={lang} slug={slug} title={`LAB-004 · ${copy.title}`} description={copy.summary}>
+  <div class="hero">
+    <div class="wrap">
+      <p class="eyebrow">{es ? 'VIRTUALIZACIÓN' : 'VIRTUALIZATION'} / LAB-004</p>
+      <h1>{copy.title}</h1>
+      <p class="lead">{copy.summary}</p>
+      <span class="badge">Proxmox VE · KVM/QEMU</span>
+      <span class="badge">Debian 13</span>
+    </div>
+  </div>
+  <div class="wrap content">
+    <p class="notice">{copy.outcome}</p>
+    <nav class="toc" aria-label={es ? 'Contenido del laboratorio' : 'Lab contents'}>
+      {sections.map(({ id, label }) => <a href={`#${id}`}>{label}</a>)}
+    </nav>
+    <section id="architecture">
+      <h2>01 / {sections[0].label}</h2>
+      <p>{copy.hardware}</p>
+      <figure>
+        <pre class="flow" tabindex="0">{copy.diagram}</pre>
+        <figcaption>{copy.diagramNote}</figcaption>
+      </figure>
+      <p>{copy.guest}</p>
+    </section>
+    <section id="implementation">
+      <h2>02 / {sections[1].label}</h2>
+      <ol>{copy.steps.map(step => <li>{step}</li>)}</ol>
+      <h3>{es ? 'Comandos representativos de verificación' : 'Representative verification commands'}</h3>
+      <pre tabindex="0"><code>{copy.commands}</code></pre>
+    </section>
+    <section id="validation">
+      <h2>03 / {sections[2].label}</h2>
+      <p>{copy.provenance}</p>
+      <dl>{copy.results.map(([label, result]) => <><dt><strong>{label}</strong></dt><dd><p>{result}</p></dd></>)}</dl>
+    </section>
+    <section id="limits">
+      <h2>04 / {sections[3].label}</h2>
+      <ul>{copy.limits.map(limit => <li>{limit}</li>)}</ul>
+      <p>{copy.lesson}</p>
+      <h3>{es ? 'Referencias oficiales' : 'Official references'}</h3>
+      <ul>
+        <li><a href="https://github.com/proxmox/pve-docs/blob/master/pve-network.adoc">{es ? 'Configuración de red de Proxmox VE' : 'Proxmox VE network configuration'}</a></li>
+        <li><a href="https://github.com/proxmox/pve-docs/blob/master/vzdump.adoc">{es ? 'Respaldo y restauración en Proxmox VE' : 'Proxmox VE backup and restore'}</a></li>
+        <li><a href="https://www.debian.org/releases/trixie/">Debian 13 (trixie)</a></li>
+      </ul>
+    </section>
+  </div>
+</LabLayout>
