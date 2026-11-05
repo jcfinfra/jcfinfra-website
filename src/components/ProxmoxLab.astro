@@ -1,0 +1,108 @@
+---
+import LabLayout from '../layouts/LabLayout.astro';
+import { proxmoxLab, restoreOutput } from '../data/proxmoxLab';
+import { proxmoxEvidence } from '../data/proxmoxEvidence';
+interface Props { lang: 'en' | 'es'; }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const copy = proxmoxLab[lang];
+const slug = '004-proxmox-homelab';
+const sections = [
+  { id: 'architecture', label: es ? 'Arquitectura' : 'Architecture' },
+  { id: 'implementation', label: es ? 'Implementación' : 'Implementation' },
+  { id: 'validation', label: es ? 'Validación y recuperación' : 'Validation and recovery' },
+  { id: 'evidence', label: es ? 'Evidencias' : 'Evidence' },
+  { id: 'limits', label: es ? 'Límites y aprendizajes' : 'Limits and lessons' },
+];
+---
+<LabLayout lang={lang} slug={slug} title={`LAB-004 · ${copy.title}`} description={copy.summary}>
+  <div class="hero">
+    <div class="wrap">
+      <p class="eyebrow">{es ? 'VIRTUALIZACIÓN' : 'VIRTUALIZATION'} / LAB-004</p>
+      <h1>{copy.title}</h1>
+      <p class="lead">{copy.summary}</p>
+      <span class="badge">Proxmox VE · KVM/QEMU</span>
+      <span class="badge">Debian 13</span>
+    </div>
+  </div>
+  <div class="wrap content">
+    <p class="notice">{copy.outcome}</p>
+    <nav class="toc" aria-label={es ? 'Contenido del laboratorio' : 'Lab contents'}>
+      {sections.map(({ id, label }) => <a href={`#${id}`}>{label}</a>)}
+    </nav>
+    <section id="architecture">
+      <h2>01 / {sections[0].label}</h2>
+      <p>{copy.hardware}</p>
+      <figure class="architecture-figure">
+        <a href="/labs/004/architecture.svg" target="_blank" rel="noopener noreferrer" aria-label={es ? 'Abrir diagrama completo de arquitectura de LAB-004' : 'Open full-size LAB-004 architecture diagram'}>
+          <img src="/labs/004/architecture.svg" width="1448" height="1086" loading="eager" decoding="async" alt={es ? 'Arquitectura LAB-004: ThinkPad Windows 11 conectada por LAN al servidor HP ProBook con Proxmox VE 9.2, pve-manager 9.2.25, VM Debian 100 y VM restaurada 101 aislada. Disco BitLocker conectado a ThinkPad; backups transferidos mediante SCP.' : 'LAB-004 architecture: Windows 11 ThinkPad on the home LAN connects to an HP ProBook running Proxmox VE 9.2, pve-manager 9.2.25, Debian VM 100 and isolated restored VM 101. BitLocker backup drive connects to the ThinkPad; backups travel over SCP.'} />
+        </a>
+        <figcaption>{copy.diagramNote} {es ? 'Selecciona la imagen para verla en tamaño completo.' : 'Select the image to view it at full size.'}</figcaption>
+      </figure>
+      <p>{copy.guest}</p>
+    </section>
+    <section id="implementation">
+      <h2>02 / {sections[1].label}</h2>
+      <ol>{copy.steps.map(step => <li>{step}</li>)}</ol>
+      <h3>{es ? 'Comandos representativos de verificación' : 'Representative verification commands'}</h3>
+      <pre tabindex="0"><code>{copy.commands}</code></pre>
+    </section>
+    <section id="validation">
+      <h2>03 / {sections[2].label}</h2>
+      <p>{copy.provenance}</p>
+      <dl>{copy.results.map(([label, result]) => <><dt><strong>{label}</strong></dt><dd><p>{result}</p></dd></>)}</dl>
+      <h3>{es ? 'Restauración de la VM 101' : 'Restoring VM 101'}</h3>
+      <p>{copy.recovery}</p>
+      <pre tabindex="0"><samp>{restoreOutput}</samp></pre>
+      <p>{copy.recoveryName}</p>
+      <p>{copy.recoveryLimit}</p>
+    </section>
+    <section id="evidence">
+      <h2>04 / {sections[3].label}</h2>
+      <p>{es ? 'Las copias públicas conservan el idioma de las capturas originales. Recorté o cubrí los datos de administración y de red privada.' : 'The public copies keep the language of the original screenshots. I cropped or masked administration and private network details.'}</p>
+      {proxmoxEvidence.map(({ file, width, height, ...caption }) => {
+        const src = '/labs/004/' + file;
+        const id = file.slice(0, 3).toUpperCase();
+        const enlarged = ['E06', 'E07', 'E09'].includes(id);
+        return (
+          <figure>
+            <img src={src} width={width} height={height} style={enlarged ? `--evidence-width: ${width * 2}px` : undefined} alt={caption[lang]} loading="lazy" decoding="async" />
+            <figcaption>{id} · {caption[lang]}</figcaption>
+            <a class="evidence-open" href={src}>
+              {es ? 'Abrir captura publicada' : 'Open published screenshot'} {id} <span aria-hidden="true">↗</span>
+            </a>
+          </figure>
+        );
+      })}
+    </section>
+    <section id="limits">
+      <h2>05 / {sections[4].label}</h2>
+      <ul>{copy.limits.map(limit => <li>{limit}</li>)}</ul>
+      <p>{copy.lesson}</p>
+      <h3>{es ? 'Referencias oficiales' : 'Official references'}</h3>
+      <ul>
+        <li><a href="https://github.com/proxmox/pve-docs/blob/master/pve-network.adoc">{es ? 'Configuración de red de Proxmox VE' : 'Proxmox VE network configuration'}</a></li>
+        <li><a href="https://github.com/proxmox/pve-docs/blob/master/vzdump.adoc">{es ? 'Respaldo y restauración en Proxmox VE' : 'Proxmox VE backup and restore'}</a></li>
+        <li><a href="https://www.debian.org/releases/trixie/">Debian 13 (trixie)</a></li>
+      </ul>
+    </section>
+  </div>
+</LabLayout>
+
+<style>
+  .architecture-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #090f21;
+    border-radius: 12px;
+  }
+  .architecture-figure a { display: block; border-radius: 12px; }
+  .architecture-figure a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+  #evidence img {
+    width: var(--evidence-width, auto);
+    max-width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+</style>

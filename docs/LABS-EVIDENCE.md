@@ -66,3 +66,28 @@ Prepared Standard_B1s parameter files are historical preparation evidence, not e
 Keep EN/ES equivalent, preserve original screenshot language and explain limits in both captions and results. Before a release, check all eight routes, evidence files, language links and return navigation; review the public preview because pushes can publish it. Do not copy credentials, subscription identifiers, private histories, employer configurations or original screenshots into a preview.
 
 See [the reusable template](LAB-TEMPLATE.md) and [Phase 5 closeout](PHASE-5-closeout.md).
+
+
+## LAB-004
+
+Case: 2 November 2026.
+
+The publication copies are cropped or masked. References identify the numbered Markdown segments recovered from the private lab history, with line numbers where applicable. The raw exports stay outside the public repository.
+
+| ID | Original screenshot | Private segment | What the public copy establishes |
+| --- | --- | --- | --- |
+| [E01](../public/labs/004/e01-debian-iso.png) | `image(20261102-202528).png` | 029:126–143 | Proxmox reports checksum verified and TASK OK for the Debian 13.7 ISO. |
+| [E02](../public/labs/004/e02-vm100-hardware.png) | `image(20261102-230929).png` | 030–040 | VM 100 hardware shows 2 vCPUs, 2 GiB RAM, a 25 GiB disk on local-lvm and VirtIO on vmbr0. |
+| [E03](../public/labs/004/e03-ssh.png) | `image(20261102-233930).png` | 042:112–175 | The initial SSH session reaches the Debian shell. Connection details are masked. |
+| [E04](../public/labs/004/e04-guest-agent.png) | `image(20261102-234312).png` | 043:21–93 | The QEMU Guest Agent service in Debian reports active (running). |
+| [E05](../public/labs/004/e05-thermal.png) | `image(20261103-010043).png` | 052:1–21 | CPU Package reaches 64 °C during a 60-second stress-ng run with two workers at 50% load each and zero reported failures. |
+| [E06](../public/labs/004/e06-host-kernel.png) | `image(20261103-025241).png` | 063:92–199 | The host reports pve-manager 9.2.25 and running kernel 7.0.14-26-pve. |
+| [E07](../public/labs/004/e07-vm-backup.png) | `image(20261103-022648).png` | 060:23–82 | The vzdump log reports successful completion of the VM 100 backup. |
+| [E08](../public/labs/004/e08-backup-hashes.png) | `image(20261103-022618).png` | 059–061 | PowerShell shows SHA-256 results for both copies. The paths and part of each hash are masked. |
+| [E09](../public/labs/004/e09-restore-vm.png) | `image(20261103-040149).png` | 064:63–72; 065:1–5 | The Proxmox tree lists VM IDs 100 and 101 on the same node. |
+
+- Segments 020–024 record the APT repository incident. Segment 029, lines 63–143, records the Debian checksum correction.
+- Segment 057, lines 328–348, records the elevated BitLocker check. Segments 059–061 record the source and destination checksums. E08 shows masked destination values.
+- Segment 063, lines 244–272, records SSH and guest checks after the host update. E03 and E04 document earlier checks.
+- The terminal excerpt comes from segment 064, lines 63–71, with the shell prompt omitted. It records restore completion and two separate VM IDs. E09 shows both IDs in the Proxmox tree. Isolation, boot and console authentication are documented in segment 064, lines 112–187, and the project closeout. The available console crop lacks a visible VM ID.
+- The public copies are pinned separately in `lab-004-evidence-sha256.json`. The LAB-001 to LAB-003 baseline remains independent.
