@@ -45,7 +45,7 @@ for(const route of routes){
   assert.equal(hash(fileFor(src)),hash(path.join('public',src)),'image integrity '+src);
  }
 }
-assert.deepEqual([...images].sort(),Object.keys(inventory).map(p=>'/'+p).sort(),'evidence inventory');
+assert.deepEqual([...images].sort(),[...Object.keys(inventory).map(p=>'/'+p),'/labs/004/architecture.svg'].sort(),'evidence inventory and architecture illustration');
 const sitemap=fs.readFileSync(fileFor('/sitemap.xml'),'utf8');
 for(const route of routes){
  const isCv=route==='/cv/'||route==='/es/cv/';

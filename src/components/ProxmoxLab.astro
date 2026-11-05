@@ -33,9 +33,11 @@ const sections = [
     <section id="architecture">
       <h2>01 / {sections[0].label}</h2>
       <p>{copy.hardware}</p>
-      <figure>
-        <pre class="flow" tabindex="0">{copy.diagram}</pre>
-        <figcaption>{copy.diagramNote}</figcaption>
+      <figure class="architecture-figure">
+        <a href="/labs/004/architecture.svg" target="_blank" rel="noopener noreferrer" aria-label={es ? 'Abrir diagrama completo de arquitectura de LAB-004' : 'Open full-size LAB-004 architecture diagram'}>
+          <img src="/labs/004/architecture.svg" width="1448" height="1086" loading="eager" decoding="async" alt={es ? 'Arquitectura LAB-004: ThinkPad Windows 11 conectada por LAN al servidor HP ProBook con Proxmox VE 9.2, pve-manager 9.2.25, VM Debian 100 y VM restaurada 101 aislada. Disco BitLocker conectado a ThinkPad; backups transferidos mediante SCP.' : 'LAB-004 architecture: Windows 11 ThinkPad on the home LAN connects to an HP ProBook running Proxmox VE 9.2, pve-manager 9.2.25, Debian VM 100 and isolated restored VM 101. BitLocker backup drive connects to the ThinkPad; backups travel over SCP.'} />
+        </a>
+        <figcaption>{copy.diagramNote} {es ? 'Selecciona la imagen para verla en tamaño completo.' : 'Select the image to view it at full size.'}</figcaption>
       </figure>
       <p>{copy.guest}</p>
     </section>
@@ -88,6 +90,15 @@ const sections = [
 </LabLayout>
 
 <style>
+  .architecture-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #090f21;
+    border-radius: 12px;
+  }
+  .architecture-figure a { display: block; border-radius: 12px; }
+  .architecture-figure a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
   #evidence img {
     width: var(--evidence-width, auto);
     max-width: 100%;
