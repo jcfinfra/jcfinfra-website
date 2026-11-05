@@ -52,6 +52,7 @@ const sections = [
       <h3>{es ? 'Restauración de la VM 101' : 'Restoring VM 101'}</h3>
       <p>{copy.recovery}</p>
       <pre tabindex="0"><samp>{restoreOutput}</samp></pre>
+      <p>{copy.recoveryName}</p>
       <p>{copy.recoveryLimit}</p>
     </section>
     <section id="evidence">
@@ -60,9 +61,10 @@ const sections = [
       {proxmoxEvidence.map(({ file, width, height, ...caption }) => {
         const src = '/labs/004/' + file;
         const id = file.slice(0, 3).toUpperCase();
+        const enlarged = ['E06', 'E07', 'E09'].includes(id);
         return (
           <figure>
-            <img src={src} width={width} height={height} alt={caption[lang]} loading="lazy" decoding="async" />
+            <img src={src} width={width} height={height} style={enlarged ? `--evidence-width: ${width * 2}px` : undefined} alt={caption[lang]} loading="lazy" decoding="async" />
             <figcaption>{id} · {caption[lang]}</figcaption>
             <a class="evidence-open" href={src}>
               {es ? 'Abrir captura publicada' : 'Open published screenshot'} {id} <span aria-hidden="true">↗</span>
@@ -87,7 +89,7 @@ const sections = [
 
 <style>
   #evidence img {
-    width: auto;
+    width: var(--evidence-width, auto);
     max-width: 100%;
     border: 1px solid var(--border);
     border-radius: 8px;

@@ -70,6 +70,8 @@ See [the reusable template](LAB-TEMPLATE.md) and [Phase 5 closeout](PHASE-5-clos
 
 ## LAB-004
 
+Case: 2 November 2026.
+
 The publication copies are cropped or masked. References identify the numbered Markdown segments recovered from the private lab history, with line numbers where applicable. The raw exports stay outside the public repository.
 
 | ID | Original screenshot | Private segment | What the public copy establishes |
